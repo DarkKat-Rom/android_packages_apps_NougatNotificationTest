@@ -21,8 +21,8 @@
     <string name="random_title">Zufällig</string>
     <string name="default_title">Standard</string>
     <string name="old_title">Alt</string>
-    <string name="big_text_title">Groß (Text)</string>
-    <string name="big_picture_title">Groß (Bild)</string>
+    <string name="big_text_title">Text</string>
+    <string name="big_picture_title">Bild</string>
     <string name="inbox_title">Inbox</string>
 
     <string name="show_action_buttons_title">Aktion Schaltflächen anzeigen</string>

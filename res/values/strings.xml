@@ -9,8 +9,8 @@
     <string name="random_title">Random</string>
     <string name="default_title">Default</string>
     <string name="old_title">Old</string>
-    <string name="big_text_title">Big (text)</string>
-    <string name="big_picture_title">Big (picture)</string>
+    <string name="big_text_title">Text</string>
+    <string name="big_picture_title">Picture</string>
     <string name="inbox_title">Inbox</string>
 
     <!-- Title of the action button switch -->

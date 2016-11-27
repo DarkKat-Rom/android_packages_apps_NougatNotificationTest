@@ -103,7 +103,7 @@ public class TypeFragment extends Fragment {
 			mBigPicture = (Button) v.findViewById(R.id.type_big_picture);
 
 			mButtonsEnabled = (Switch) v.findViewById(R.id.type_buttons_switch);
-			mButtonsGroup = (RadioGroup) v.findViewById(R.id.type_buttons_group);
+			mButtonsGroup = (RadioGroup) v.findViewById(R.id.number_of_actions_buttons_group);
 
 			mBigText.setOnClickListener(listener);
 			mInbox.setOnClickListener(listener);

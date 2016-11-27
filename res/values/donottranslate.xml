@@ -21,6 +21,5 @@
     <string name="two">2</string>
     <string name="three">3</string>
 
-    <string name="for_jelly_bean">Priorities are a new feature of Jelly Bean. Sorry</string>
     <string name="big_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae tellus ac dui faucibus commodo. Morbi id urna lacus, sed cursus ipsum. Phasellus porta ipsum non mi bibendum accumsan. Nam lacus neque, sollicitudin et aliquam et, laoreet vitae lacus. Fusce lectus neque, semper id sagittis in, cursus elementum mi. Nam eget eleifend odio. Sed scelerisque eleifend ipsum ut aliquet. Donec nibh velit, consectetur vestibulum euismod et, tempus vel odio. Aliquam erat volutpat. Donec porta pharetra laoreet.</string>
 </resources>

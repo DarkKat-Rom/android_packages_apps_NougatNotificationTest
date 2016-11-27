@@ -15,11 +15,11 @@
 -->
 <resources>
 
-    <style name="ActionBarTabBarStyle" parent="@android:style/Widget.Material.Light.ActionBar.TabBar">
-        <item name="android:showDividers">none</item>
-    </style>
-
-    <style name="ActionBarTabView" parent="@android:style/Widget.Material.Light.ActionBar.TabView">
-        <item name="android:background">@drawable/tab_indicator</item>
+    <style name="AppTheme" parent="@android:style/Theme.Material.Light.DarkActionBar">
+        <item name="android:colorPrimary">@color/theme_primary</item>
+        <item name="android:colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="android:colorAccent">@color/theme_accent</item>
+        <item name="android:actionBarTabBarStyle">@style/ActionBarTabBarStyle</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabView</item>
     </style>
 </resources>
