@@ -32,8 +32,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		// For each of the sections in the app, add a tab to the action bar.
-		actionBar.addTab(actionBar.newTab().setText(R.string.title_section1).setTabListener(this));
-		actionBar.addTab(actionBar.newTab().setText(R.string.title_section2).setTabListener(this));
+		actionBar.addTab(actionBar.newTab().setText(R.string.types_title).setTabListener(this));
+		actionBar.addTab(actionBar.newTab().setText(R.string.priority_title).setTabListener(this));
 
 		manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -60,12 +60,6 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	public void onSaveInstanceState(Bundle outState) {
 		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM,
 				getActionBar().getSelectedNavigationIndex());
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		//getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
 	}
 
 	@Override

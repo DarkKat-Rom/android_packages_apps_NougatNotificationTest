@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+
+    <string name="types_title">Typen</string>
+    <string name="priority_title">Prioritäten</string>
+
+    <string name="random_title">Zufällig</string>
+    <string name="default_title">Standard</string>
+    <string name="old_title">Alt</string>
+    <string name="big_text_title">Groß (Text)</string>
+    <string name="big_picture_title">Groß (Bild)</string>
+    <string name="inbox_title">Inbox</string>
+
+    <string name="show_action_buttons_title">Aktion Schaltflächen anzeigen</string>
+
+    <string name="max_priority_title">Max. Priorität</string>
+    <string name="high_priority_title">Hohe Priorität</string>
+    <string name="default_priority_title">Standard Priorität</string>
+    <string name="low_priority_title">Niedrige Priorität</string>
+    <string name="min_priority_title">Min. Priorität</string>
+</resources>

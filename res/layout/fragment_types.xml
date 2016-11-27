@@ -16,6 +16,6 @@
             android:id="@+id/type_old"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/old" />
+            android:text="@string/old_title" />
 
 </LinearLayout>

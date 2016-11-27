@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+
+    <string name="app_name">Nougat Notifications Test</string>
+
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+
+    <string name="for_jelly_bean">Priorities are a new feature of Jelly Bean. Sorry</string>
+    <string name="big_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae tellus ac dui faucibus commodo. Morbi id urna lacus, sed cursus ipsum. Phasellus porta ipsum non mi bibendum accumsan. Nam lacus neque, sollicitudin et aliquam et, laoreet vitae lacus. Fusce lectus neque, semper id sagittis in, cursus elementum mi. Nam eget eleifend odio. Sed scelerisque eleifend ipsum ut aliquet. Donec nibh velit, consectetur vestibulum euismod et, tempus vel odio. Aliquam erat volutpat. Donec porta pharetra laoreet.</string>
+</resources>
