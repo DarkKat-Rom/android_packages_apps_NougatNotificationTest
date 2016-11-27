@@ -1,4 +1,4 @@
-package com.sloy.jbnotif;
+package net.darkkatrom.nnotiftest;
 
 import android.app.ActionBar;
 import android.app.Activity;

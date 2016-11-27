@@ -9,30 +9,30 @@
         android:id="@+id/priority_max"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Max priority" />
+        android:text="@string/max_priority" />
 
     <Button
         android:id="@+id/priority_high"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="High priority" />
+        android:text="@string/high_priority" />
 
     <Button
         android:id="@+id/priority_default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Default priority" />
+        android:text="@string/default_priority" />
 
     <Button
         android:id="@+id/priority_low"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Low priority" />
+        android:text="@string/low_priority" />
 
     <Button
         android:id="@+id/priority_min"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Min priority" />
+        android:text="@string/min_priority" />
 
 </LinearLayout>

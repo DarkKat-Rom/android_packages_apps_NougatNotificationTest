@@ -1,11 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sloy.jbnotif"
-    android:versionCode="2"
-    android:versionName="1.1" >
+    package="net.darkkatrom.nnotiftest">
 
     <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="16" />
+        android:minSdkVersion="24"
+        android:targetSdkVersion="24" />
 
     <application
         android:icon="@drawable/ic_launcher"

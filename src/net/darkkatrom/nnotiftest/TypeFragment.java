@@ -1,4 +1,4 @@
-package com.sloy.jbnotif;
+package net.darkkatrom.nnotiftest;
 
 import java.util.Random;
 

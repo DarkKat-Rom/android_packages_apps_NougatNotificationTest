@@ -10,6 +10,6 @@
         android:layout_height="wrap_content"
         android:padding="10dip"
         android:layout_gravity="center"
-        android:text="Priorities are a new feature of Jelly Bean. Sorry" />
+        android:text="@string/for_jelly_bean" />
 
 </LinearLayout>
