@@ -12,8 +12,6 @@
             android:onClick="showDefaultNotification"
             android:text="@string/default_title" />
 
-
-
         <Button
             android:id="@+id/type_old"
             android:layout_width="wrap_content"

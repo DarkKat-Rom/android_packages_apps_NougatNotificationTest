@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,8 +29,6 @@
             android:layout_rowSpan="2"
             android:onClick="showDefaultNotification"
             android:text="@string/default_title" />
-
-
 
         <Button
             android:id="@+id/type_old"
