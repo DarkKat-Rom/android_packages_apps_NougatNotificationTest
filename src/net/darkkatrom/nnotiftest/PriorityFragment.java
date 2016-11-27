@@ -8,16 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class PriorityFragment extends Fragment {
+public class PriorityFragment extends Fragment implements View.OnClickListener {
+
+	private MainActivity mContext;
 
 	private Randomizer mRandomizer;
+
 	private int count = 1;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		mContext = (MainActivity) getActivity();
+
+		mRandomizer = new Randomizer(mContext);
+
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_priorities, container, false);
-
-		mRandomizer = new Randomizer(getActivity());
 
 		Button maxPrior = (Button) v.findViewById(R.id.priority_max);
 		Button highPrior = (Button) v.findViewById(R.id.priority_high);
@@ -25,52 +35,56 @@ public class PriorityFragment extends Fragment {
 		Button lowPrior = (Button) v.findViewById(R.id.priority_low);
 		Button minPrior = (Button) v.findViewById(R.id.priority_min);
 
-		View.OnClickListener listener = new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Notification.Builder builder = new Notification.Builder(getActivity())
-						.setSmallIcon(R.drawable.ic_launcher)
-						.setWhen(System.currentTimeMillis())
-						.setContentInfo("no. " + count++)
-						.setContentText("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
-						.setLargeIcon(mRandomizer.getRandomImage());
-
-				switch (v.getId()) {
-				case R.id.priority_max:
-					builder.setContentTitle("Maximun priority notification")
-							.setPriority(Notification.PRIORITY_MAX);
-					break;
-				case R.id.priority_high:
-					builder.setContentTitle("High priority notification")
-							.setPriority(Notification.PRIORITY_HIGH);
-					break;
-
-				case R.id.priority_low:
-					builder.setContentTitle("Low priority notification")
-							.setPriority(Notification.PRIORITY_LOW);
-					break;
-				case R.id.priority_min:
-					builder.setContentTitle("Minimun priority notification")
-							.setPriority(Notification.PRIORITY_MIN);
-					break;
-				case R.id.priority_default:
-				default:
-					builder.setContentTitle("Default priority notification")
-							.setPriority(Notification.PRIORITY_DEFAULT);
-					break;
-				}
-				
-				((MainActivity)getActivity()).sendNotification(builder.build());
-			}
-		};
-		
-		maxPrior.setOnClickListener(listener);
-		highPrior.setOnClickListener(listener);
-		defaultPrior.setOnClickListener(listener);
-		lowPrior.setOnClickListener(listener);
-		minPrior.setOnClickListener(listener);
+		maxPrior.setOnClickListener(this);
+		highPrior.setOnClickListener(this);
+		defaultPrior.setOnClickListener(this);
+		lowPrior.setOnClickListener(this);
+		minPrior.setOnClickListener(this);
 		
 		return v;
 	}
 
+	@Override
+	public void onClick(View v) {
+		Notification.Builder builder = new Notification.Builder(mContext)
+				.setSmallIcon(R.drawable.ic_launcher)
+				.setWhen(System.currentTimeMillis())
+				.setContentInfo(getResources().getString(
+                        R.string.priority_notification_info_text, count++))
+				.setContentText(getResources().getString(
+                        R.string.type_default_notification_content_text))
+				.setLargeIcon(mRandomizer.getRandomImage());
+
+		switch (v.getId()) {
+		case R.id.priority_max:
+			builder.setContentTitle(getResources().getString(
+                    R.string.priority_max_notification_title_text))
+					.setPriority(Notification.PRIORITY_MAX);
+			break;
+		case R.id.priority_high:
+			builder.setContentTitle(getResources().getString(
+                    R.string.priority_high_notification_title_text))
+					.setPriority(Notification.PRIORITY_HIGH);
+			break;
+
+		case R.id.priority_low:
+			builder.setContentTitle(getResources().getString(
+                    R.string.priority_low_notification_title_text))
+					.setPriority(Notification.PRIORITY_LOW);
+			break;
+		case R.id.priority_min:
+			builder.setContentTitle(getResources().getString(
+                    R.string.priority_min_notification_title_text))
+					.setPriority(Notification.PRIORITY_MIN);
+			break;
+		case R.id.priority_default:
+		default:
+			builder.setContentTitle(getResources().getString(
+                    R.string.priority_default_notification_title_text))
+					.setPriority(Notification.PRIORITY_DEFAULT);
+			break;
+		}
+		
+		mContext.sendNotification(builder.build());
+	}
 }

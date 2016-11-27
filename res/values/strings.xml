@@ -22,4 +22,34 @@
     <string name="default_priority_title">Default priority</string>
     <string name="low_priority_title">Low priority</string>
     <string name="min_priority_title">Min. priority</string>
+
+    <!-- Notification text -->
+    <string name="notification_info_text">Info</string>
+    <string name="notification_summary_text">Summary</string>
+    <string name="notification_action_text">Action %1$s</string>
+
+    <string name="type_default_notification_title_text">Default title</string>
+
+    <string name="type_text_notification_title_text">Text title</string>
+    <string name="type_text_notification_content_text">Text content</string>
+    <string name="type_text_notification_title_expanded_text">Text title (expanded view)</string>
+
+    <string name="type_picture_notification_title_text">Picture title</string>
+    <string name="type_picture_notification_content_text">Picture content</string>
+    <string name="type_picture_notification_title_expanded_text">Picture title (expanded view)</string>
+
+    <string name="type_inbox_notification_title_text">Inbox title</string>
+    <string name="type_inbox_notification_content_text">Inbox content</string>
+    <string name="type_inbox_notification_title_expanded_text">Inbox title (expanded view)</string>
+    <string name="type_inbox_notification_line_number_text">This is line no. %1$s</string>
+
+    <string name="type_old_notification_title_text">Old title</string>
+    <string name="type_old_notification_content_text">Old content</string>
+
+    <string name="priority_notification_info_text">no. %1$s</string>
+    <string name="priority_max_notification_title_text">Maximal priority notification</string>
+    <string name="priority_high_notification_title_text">High priority notification</string>
+    <string name="priority_default_notification_title_text">Default priority notification</string>
+    <string name="priority_low_notification_title_text">Low priority notification</string>
+    <string name="priority_min_notification_title_text">Minimun priority notification</string>
 </resources>

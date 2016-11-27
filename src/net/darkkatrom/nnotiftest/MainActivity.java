@@ -20,7 +20,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 	private Fragment mFragType, mFragPriority;
 	private int NOTIF_REF = 1;
-	private NotificationManager manager;
+	private NotificationManager mManager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -35,12 +35,12 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		actionBar.addTab(actionBar.newTab().setText(R.string.types_title).setTabListener(this));
 		actionBar.addTab(actionBar.newTab().setText(R.string.priority_title).setTabListener(this));
 
-		manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		mManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
 	}
 	
 	public void sendNotification(Notification notif){
-		manager.notify(NOTIF_REF++, notif);
+		mManager.notify(NOTIF_REF++, notif);
 	}
 
 
@@ -71,6 +71,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		// When the given tab is selected, show the tab contents in the
 		// container
 		switch (tab.getPosition()) {
+			default:
 			case 0:
 				if (mFragType == null) {
 					mFragType = new TypeFragment();
@@ -83,41 +84,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 				}
 				getFragmentManager().beginTransaction().replace(R.id.container, mFragPriority).commit();
 				break;
-			default:
-				Fragment fragment = new DummySectionFragment();
-				Bundle args = new Bundle();
-				args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, tab.getPosition() + 1);
-				fragment.setArguments(args);
-				getFragmentManager().beginTransaction()
-						.replace(R.id.container, fragment)
-						.commit();
-				break;
 		}
 
 	}
 
 	@Override
 	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-	}
-
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
-	public static class DummySectionFragment extends Fragment {
-		public DummySectionFragment() {
-		}
-
-		public static final String ARG_SECTION_NUMBER = "section_number";
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			TextView textView = new TextView(getActivity());
-			textView.setGravity(Gravity.CENTER);
-			Bundle args = getArguments();
-			textView.setText("Not implemented yet, sorry ^^'");
-			return textView;
-		}
 	}
 }
