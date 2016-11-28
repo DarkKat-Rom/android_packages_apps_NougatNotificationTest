@@ -190,7 +190,7 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 
 	private Notification getOldNotification() {
 		Notification notif = new Notification(
-                R.drawable.ic_launcher,
+                mRandomizer.getRandomSmallIconId(),
                 null,
                 System.currentTimeMillis());
 
