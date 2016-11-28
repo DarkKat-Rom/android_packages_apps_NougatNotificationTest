@@ -15,6 +15,8 @@ public class Randomizer {
 			android.R.drawable.ic_menu_directions, android.R.drawable.ic_menu_edit, android.R.drawable.ic_menu_mylocation,
 			android.R.drawable.ic_menu_preferences, android.R.drawable.ic_menu_zoom, android.R.drawable.ic_menu_delete,
 			android.R.drawable.ic_menu_view, android.R.drawable.ic_menu_share };
+	public static final int[] SMALL_ICONS = new int[] { R.drawable.ic_image_small, R.drawable.ic_note_small, R.drawable.ic_text_small,
+			R.drawable.ic_message_small };
 
 	public static final Random rand = new Random();
 
@@ -38,6 +40,10 @@ public class Randomizer {
 
 	public int getRandomIconId() {
 		return ICONS[rand.nextInt(ICONS.length)];
+	}
+
+	public int getRandomSmallIconId() {
+		return SMALL_ICONS[rand.nextInt(SMALL_ICONS.length)];
 	}
 
 }

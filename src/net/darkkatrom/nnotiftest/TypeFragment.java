@@ -113,15 +113,15 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 	}
 
 	private Notification getDefaultNotification(Notification.Builder builder) {
-		builder.setSmallIcon(R.drawable.ic_launcher)
+		builder.setSmallIcon(mRandomizer.getRandomSmallIconId())
 				.setWhen(System.currentTimeMillis())
 				.setContentTitle(getResources().getString(
                         R.string.type_default_notification_title_text))
 				.setContentText(getResources().getString(
                         R.string.type_default_notification_content_text))
 				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setLargeIcon(mRandomizer.getRandomImage());
-
+				.setLargeIcon(mRandomizer.getRandomImage())
+                .setColor(getResources().getColor(R.color.theme_accent));
 		return builder.build();
 	}
 
@@ -129,8 +129,9 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		builder.setContentTitle(getResources().getString(R.string.type_text_notification_title_text))
 				.setContentText(getResources().getString(R.string.type_text_notification_content_text))
 				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setSmallIcon(R.drawable.ic_launcher)
-				.setLargeIcon(mRandomizer.getRandomImage());
+				.setSmallIcon(R.drawable.ic_text_small)
+				.setLargeIcon(mRandomizer.getRandomImage())
+                .setColor(getResources().getColor(R.color.theme_accent));
 
 		return new Notification.BigTextStyle(builder)
 				.bigText(getResources().getString(R.string.big_text))
@@ -151,8 +152,9 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 				.setContentText(getResources().getString(
                         R.string.type_picture_notification_content_text))
 				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setSmallIcon(R.drawable.ic_launcher)
-				.setLargeIcon(large);
+				.setSmallIcon(R.drawable.ic_image_small)
+				.setLargeIcon(large)
+                .setColor(getResources().getColor(R.color.theme_accent));
 
 		return new Notification.BigPictureStyle(builder)
 				.bigPicture(large)
@@ -168,8 +170,9 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 				.setContentText(getResources().getString(
                         R.string.type_inbox_notification_content_text))
 				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setSmallIcon(R.drawable.ic_launcher)
-				.setLargeIcon(mRandomizer.getRandomImage());
+				.setSmallIcon(R.drawable.ic_message_small)
+				.setLargeIcon(mRandomizer.getRandomImage())
+                .setColor(getResources().getColor(R.color.theme_accent));
 
 		Notification.InboxStyle n = new Notification.InboxStyle(builder)
 				.setBigContentTitle(getResources().getString(

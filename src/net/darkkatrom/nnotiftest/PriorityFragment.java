@@ -47,13 +47,14 @@ public class PriorityFragment extends Fragment implements View.OnClickListener {
 	@Override
 	public void onClick(View v) {
 		Notification.Builder builder = new Notification.Builder(mContext)
-				.setSmallIcon(R.drawable.ic_launcher)
+				.setSmallIcon(mRandomizer.getRandomSmallIconId())
 				.setWhen(System.currentTimeMillis())
 				.setContentInfo(getResources().getString(
                         R.string.priority_notification_info_text, count++))
 				.setContentText(getResources().getString(
                         R.string.type_default_notification_content_text))
-				.setLargeIcon(mRandomizer.getRandomImage());
+				.setLargeIcon(mRandomizer.getRandomImage())
+                .setColor(getResources().getColor(R.color.theme_accent));
 
 		switch (v.getId()) {
 		case R.id.priority_max:
