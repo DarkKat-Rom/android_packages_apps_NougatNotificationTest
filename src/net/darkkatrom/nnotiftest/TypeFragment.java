@@ -7,6 +7,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -131,17 +132,15 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 				.setContentText(getResources().getString(
                         R.string.type_default_notification_content_text))
 				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setLargeIcon(mRandomizer.getRandomImage())
                 .setColor(getResources().getColor(R.color.theme_accent));
 		return builder.build();
 	}
 
 	private Notification getBigTextStyle(Notification.Builder builder) {
-		builder.setContentTitle(getResources().getString(R.string.type_text_notification_title_text))
+		builder.setSmallIcon(R.drawable.ic_status_bar_text)
+                .setContentTitle(getResources().getString(R.string.type_text_notification_title_text))
 				.setContentText(getResources().getString(R.string.type_text_notification_content_text))
 				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setSmallIcon(R.drawable.ic_text_small)
-				.setLargeIcon(mRandomizer.getRandomImage())
                 .setColor(getResources().getColor(R.color.theme_accent));
 
 		return new Notification.BigTextStyle(builder)
@@ -157,19 +156,18 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		// when expanded.
 		// And when expanded, the icon will be another one.
 		Bitmap large = mRandomizer.getRandomImage();
-		Bitmap notSoLarge = mRandomizer.getRandomImage();
-		builder.setContentTitle(getResources().getString(
+		builder.setSmallIcon(R.drawable.ic_status_bar_image)
+                .setContentTitle(getResources().getString(
                         R.string.type_picture_notification_title_text))
 				.setContentText(getResources().getString(
                         R.string.type_picture_notification_content_text))
 				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setSmallIcon(R.drawable.ic_image_small)
 				.setLargeIcon(large)
                 .setColor(getResources().getColor(R.color.theme_accent));
 
 		return new Notification.BigPictureStyle(builder)
 				.bigPicture(large)
-				.bigLargeIcon(notSoLarge)
+				.bigLargeIcon(large)
 				.setBigContentTitle(getResources().getString(
                         R.string.type_picture_notification_title_expanded_text))
 				.setSummaryText(getResources().getString(R.string.notification_summary_text))
@@ -177,12 +175,13 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 	}
 
 	private Notification getInboxStyle(Notification.Builder builder) {
-		builder.setContentTitle(getResources().getString(R.string.type_inbox_notification_title_text))
+		Bitmap large = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+		builder.setSmallIcon(R.drawable.ic_status_bar_message)
+                .setContentTitle(getResources().getString(R.string.type_inbox_notification_title_text))
 				.setContentText(getResources().getString(
                         R.string.type_inbox_notification_content_text))
 				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setSmallIcon(R.drawable.ic_message_small)
-				.setLargeIcon(mRandomizer.getRandomImage())
+				.setLargeIcon(large)
                 .setColor(getResources().getColor(R.color.theme_accent));
 
 		Notification.InboxStyle n = new Notification.InboxStyle(builder)
@@ -202,23 +201,22 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 	private Notification getMediaStyle(Notification.Builder builder) {
         Notification.MediaStyle style = new Notification.MediaStyle()
                 .setShowActionsInCompactView(1, 2, 3);
-
 		PendingIntent intent = PendingIntent.getActivity(mContext, 0, new Intent(), 0);
 
-        builder.setSmallIcon(R.drawable.ic_media_small)
-                .setLargeIcon(mRandomizer.getRandomImage())
+        builder.setSmallIcon(R.drawable.ic_status_bar_media)
                 .setContentTitle(getResources().getString(R.string.type_media_notification_title_text))
                 .setContentText(getResources().getString(R.string.type_media_notification_content_text))
+                .setLargeIcon(mRandomizer.getRandomImage())
                 .setStyle(style)
-                .addAction(R.drawable.ic_fast_rewind,
+                .addAction(R.drawable.ic_action_fast_rewind,
                         getResources().getString(R.string.fast_rewind_title), intent)
-                .addAction(R.drawable.ic_skip_previous,
+                .addAction(R.drawable.ic_action_skip_previous,
                         getResources().getString(R.string.skip_previous_title), intent)
-                .addAction(R.drawable.ic_play,
+                .addAction(R.drawable.ic_action_play,
                         getResources().getString(R.string.play_title), intent)
-                .addAction(R.drawable.ic_skip_next,
+                .addAction(R.drawable.ic_action_skip_next,
                         getResources().getString(R.string.skip_next_title), intent)
-                .addAction(R.drawable.ic_fast_forward,
+                .addAction(R.drawable.ic_action_fast_forward,
                         getResources().getString(R.string.fast_forward_title), intent)
                 .setColor(getResources().getColor(R.color.theme_accent));
         return builder.build();

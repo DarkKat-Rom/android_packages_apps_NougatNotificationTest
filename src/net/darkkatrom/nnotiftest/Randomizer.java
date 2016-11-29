@@ -10,7 +10,7 @@ import android.graphics.BitmapFactory;
 
 public class Randomizer {
 
-	public static final String[] IMAGES = new String[] { "jelly.png", "io.png", "design.png",
+	public static final String[] IMAGES = new String[] { "nougat.png", "io.png", "design.png",
             "play.png", "pitufina.png", "bob.png" };
 	public static final int[] ICONS = new int[] { android.R.drawable.ic_menu_add,
             android.R.drawable.ic_menu_call, android.R.drawable.ic_menu_day,
@@ -18,10 +18,12 @@ public class Randomizer {
             android.R.drawable.ic_menu_mylocation, android.R.drawable.ic_menu_preferences,
             android.R.drawable.ic_menu_zoom, android.R.drawable.ic_menu_delete,
 			android.R.drawable.ic_menu_view, android.R.drawable.ic_menu_share };
-	public static final int[] SMALL_ICONS = new int[] { R.drawable.ic_image_small,
-            R.drawable.ic_note_small, R.drawable.ic_text_small, R.drawable.ic_message_small,
-            R.drawable.ic_media_small, R.drawable.ic_fast_rewind, R.drawable.ic_skip_previous,
-            R.drawable.ic_play, R.drawable.ic_skip_next, R.drawable.ic_fast_forward };
+	public static final int[] SMALL_ICONS = new int[] { R.drawable.ic_status_bar_image,
+            R.drawable.ic_status_bar_note, R.drawable.ic_status_bar_text,
+            R.drawable.ic_status_bar_message, R.drawable.ic_status_bar_media,
+            R.drawable.ic_action_fast_rewind, R.drawable.ic_action_skip_previous,
+            R.drawable.ic_action_play, R.drawable.ic_action_skip_next,
+            R.drawable.ic_action_fast_forward };
 
 	public static final Random rand = new Random();
 
