@@ -9,44 +9,42 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class PriorityFragment extends Fragment implements View.OnClickListener {
+    private MainActivity mContext;
 
-	private MainActivity mContext;
+    private Randomizer mRandomizer;
 
-	private Randomizer mRandomizer;
+    private int count = 1;
 
-	private int count = 1;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = (MainActivity) getActivity();
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		mContext = (MainActivity) getActivity();
+        mRandomizer = new Randomizer(mContext);
+    }
 
-		mRandomizer = new Randomizer(mContext);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_priorities, container, false);
 
-	}
+        Button maxPrior = (Button) v.findViewById(R.id.priority_max);
+        Button highPrior = (Button) v.findViewById(R.id.priority_high);
+        Button defaultPrior = (Button) v.findViewById(R.id.priority_default);
+        Button lowPrior = (Button) v.findViewById(R.id.priority_low);
+        Button minPrior = (Button) v.findViewById(R.id.priority_min);
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_priorities, container, false);
-
-		Button maxPrior = (Button) v.findViewById(R.id.priority_max);
-		Button highPrior = (Button) v.findViewById(R.id.priority_high);
-		Button defaultPrior = (Button) v.findViewById(R.id.priority_default);
-		Button lowPrior = (Button) v.findViewById(R.id.priority_low);
-		Button minPrior = (Button) v.findViewById(R.id.priority_min);
-
-		maxPrior.setOnClickListener(this);
-		highPrior.setOnClickListener(this);
-		defaultPrior.setOnClickListener(this);
-		lowPrior.setOnClickListener(this);
-		minPrior.setOnClickListener(this);
+        maxPrior.setOnClickListener(this);
+        highPrior.setOnClickListener(this);
+        defaultPrior.setOnClickListener(this);
+        lowPrior.setOnClickListener(this);
+        minPrior.setOnClickListener(this);
 		
-		return v;
-	}
+        return v;
+    }
 
-	@Override
-	public void onClick(View v) {
-		Notification.Builder builder = new Notification.Builder(mContext)
+    @Override
+    public void onClick(View v) {
+        Notification.Builder builder = new Notification.Builder(mContext)
                 .setSmallIcon(mRandomizer.getRandomSmallIconId())
                 .setWhen(System.currentTimeMillis())
                 .setContentInfo(getResources().getString(
@@ -56,35 +54,35 @@ public class PriorityFragment extends Fragment implements View.OnClickListener {
                 .setLargeIcon(mRandomizer.getRandomImage())
                 .setColor(getResources().getColor(R.color.theme_accent));
 
-		switch (v.getId()) {
-		case R.id.priority_max:
-			builder.setContentTitle(getResources().getString(
-                    R.string.priority_max_notification_title_text))
-                    .setPriority(Notification.PRIORITY_MAX);
-			break;
-		case R.id.priority_high:
-			builder.setContentTitle(getResources().getString(
-                    R.string.priority_high_notification_title_text))
-                    .setPriority(Notification.PRIORITY_HIGH);
-			break;
-		case R.id.priority_low:
-			builder.setContentTitle(getResources().getString(
-                    R.string.priority_low_notification_title_text))
-                    .setPriority(Notification.PRIORITY_LOW);
-			break;
-		case R.id.priority_min:
-			builder.setContentTitle(getResources().getString(
-                    R.string.priority_min_notification_title_text))
-                    .setPriority(Notification.PRIORITY_MIN);
-			break;
-		case R.id.priority_default:
-		default:
-			builder.setContentTitle(getResources().getString(
-                    R.string.priority_default_notification_title_text))
-                    .setPriority(Notification.PRIORITY_DEFAULT);
-			break;
-		}
+        switch (v.getId()) {
+            case R.id.priority_max:
+                builder.setContentTitle(getResources().getString(
+                        R.string.priority_max_notification_title_text))
+                        .setPriority(Notification.PRIORITY_MAX);
+                break;
+            case R.id.priority_high:
+                builder.setContentTitle(getResources().getString(
+                        R.string.priority_high_notification_title_text))
+                        .setPriority(Notification.PRIORITY_HIGH);
+                break;
+            case R.id.priority_low:
+                builder.setContentTitle(getResources().getString(
+                        R.string.priority_low_notification_title_text))
+                        .setPriority(Notification.PRIORITY_LOW);
+                break;
+            case R.id.priority_min:
+                builder.setContentTitle(getResources().getString(
+                        R.string.priority_min_notification_title_text))
+                        .setPriority(Notification.PRIORITY_MIN);
+                break;
+            case R.id.priority_default:
+            default:
+                builder.setContentTitle(getResources().getString(
+                        R.string.priority_default_notification_title_text))
+                .setPriority(Notification.PRIORITY_DEFAULT);
+                break;
+        }
 		
-		mContext.sendNotification(builder.build());
-	}
+        mContext.sendNotification(builder.build());
+    }
 }
