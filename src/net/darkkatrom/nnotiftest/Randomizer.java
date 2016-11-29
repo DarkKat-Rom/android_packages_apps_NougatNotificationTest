@@ -10,13 +10,18 @@ import android.graphics.BitmapFactory;
 
 public class Randomizer {
 
-	public static final String[] IMAGES = new String[] { "jelly.png", "io.png", "design.png", "play.png", "pitufina.png", "bob.png" };
-	public static final int[] ICONS = new int[] { android.R.drawable.ic_menu_add, android.R.drawable.ic_menu_call, android.R.drawable.ic_menu_day,
-			android.R.drawable.ic_menu_directions, android.R.drawable.ic_menu_edit, android.R.drawable.ic_menu_mylocation,
-			android.R.drawable.ic_menu_preferences, android.R.drawable.ic_menu_zoom, android.R.drawable.ic_menu_delete,
+	public static final String[] IMAGES = new String[] { "jelly.png", "io.png", "design.png",
+            "play.png", "pitufina.png", "bob.png" };
+	public static final int[] ICONS = new int[] { android.R.drawable.ic_menu_add,
+            android.R.drawable.ic_menu_call, android.R.drawable.ic_menu_day,
+			android.R.drawable.ic_menu_directions, android.R.drawable.ic_menu_edit,
+            android.R.drawable.ic_menu_mylocation, android.R.drawable.ic_menu_preferences,
+            android.R.drawable.ic_menu_zoom, android.R.drawable.ic_menu_delete,
 			android.R.drawable.ic_menu_view, android.R.drawable.ic_menu_share };
-	public static final int[] SMALL_ICONS = new int[] { R.drawable.ic_image_small, R.drawable.ic_note_small, R.drawable.ic_text_small,
-			R.drawable.ic_message_small };
+	public static final int[] SMALL_ICONS = new int[] { R.drawable.ic_image_small,
+            R.drawable.ic_note_small, R.drawable.ic_text_small, R.drawable.ic_message_small,
+            R.drawable.ic_media_small, R.drawable.ic_fast_rewind, R.drawable.ic_skip_previous,
+            R.drawable.ic_play, R.drawable.ic_skip_next, R.drawable.ic_fast_forward };
 
 	public static final Random rand = new Random();
 

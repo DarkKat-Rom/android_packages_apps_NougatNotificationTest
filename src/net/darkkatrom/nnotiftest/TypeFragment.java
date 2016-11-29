@@ -18,7 +18,7 @@ import android.widget.Switch;
 
 public class TypeFragment extends Fragment implements View.OnClickListener {
 
-	private Button mDefault, mBigText, mInbox, mBigPicture, mRandom, mOld;
+	private Button mRandom, mDefault, mOld, mBigText, mBigPicture, mInbox, mBigMedia;
 
 	private MainActivity mContext;
 
@@ -46,6 +46,7 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		mBigText = (Button) v.findViewById(R.id.type_big_text);
 		mBigPicture = (Button) v.findViewById(R.id.type_big_picture);
 		mInbox = (Button) v.findViewById(R.id.type_inbox);
+		mBigMedia = (Button) v.findViewById(R.id.type_big_media);
 
 		mButtonsEnabled = (Switch) v.findViewById(R.id.type_buttons_switch);
 		mButtonsGroup = (RadioGroup) v.findViewById(R.id.number_of_actions_buttons_group);
@@ -56,6 +57,7 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		mBigText.setOnClickListener(this);
 		mBigPicture.setOnClickListener(this);
 		mInbox.setOnClickListener(this);
+		mBigMedia.setOnClickListener(this);
 
 		return v;
 	}
@@ -68,7 +70,7 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		// If random, add random buttons and take a random type
 		if (v.getId() == R.id.type_random) {
 			setRandomButtons(builder);
-			switch (new Random().nextInt(4)) {
+			switch (new Random().nextInt(5)) {
 			    case 0:
 				    // default
 				    notif = getDefaultNotification(builder);
@@ -85,7 +87,13 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 				    // inbox
 				    notif = getInboxStyle(builder);
 				    break;
+			    case 4:
+				    // big media
+				    notif = getMediaStyle(builder);
+				    break;
 			}
+		} else if (v.getId() == R.id.type_big_media) {
+		    notif = getMediaStyle(builder);
 		} else {
 			// Set selected buttons
 			setButtons(builder, null);
@@ -96,6 +104,9 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 				    break;
 			    case R.id.type_inbox:
 				    notif = getInboxStyle(builder);
+				    break;
+			    case R.id.type_big_media:
+				    notif = getMediaStyle(builder);
 				    break;
 			    case R.id.type_big_picture:
 				    notif = getBigPictureStyle(builder);
@@ -186,6 +197,31 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		}
 
 		return n.build();
+	}
+
+	private Notification getMediaStyle(Notification.Builder builder) {
+        Notification.MediaStyle style = new Notification.MediaStyle()
+                .setShowActionsInCompactView(1, 2, 3);
+
+		PendingIntent intent = PendingIntent.getActivity(mContext, 0, new Intent(), 0);
+
+        builder.setSmallIcon(R.drawable.ic_media_small)
+                .setLargeIcon(mRandomizer.getRandomImage())
+                .setContentTitle(getResources().getString(R.string.type_media_notification_title_text))
+                .setContentText(getResources().getString(R.string.type_media_notification_content_text))
+                .setStyle(style)
+                .addAction(R.drawable.ic_fast_rewind,
+                        getResources().getString(R.string.fast_rewind_title), intent)
+                .addAction(R.drawable.ic_skip_previous,
+                        getResources().getString(R.string.skip_previous_title), intent)
+                .addAction(R.drawable.ic_play,
+                        getResources().getString(R.string.play_title), intent)
+                .addAction(R.drawable.ic_skip_next,
+                        getResources().getString(R.string.skip_next_title), intent)
+                .addAction(R.drawable.ic_fast_forward,
+                        getResources().getString(R.string.fast_forward_title), intent)
+                .setColor(getResources().getColor(R.color.theme_accent));
+        return builder.build();
 	}
 
 	private Notification getOldNotification() {

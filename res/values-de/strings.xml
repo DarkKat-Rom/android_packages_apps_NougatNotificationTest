@@ -24,6 +24,7 @@
     <string name="big_text_title">Text</string>
     <string name="big_picture_title">Bild</string>
     <string name="inbox_title">Posteing.</string>
+    <string name="big_media_title">Media</string>
 
     <string name="show_action_buttons_title">Aktion Schaltflächen anzeigen</string>
 
@@ -51,6 +52,14 @@
     <string name="type_inbox_notification_content_text">Posteingang Inhalt</string>
     <string name="type_inbox_notification_title_expanded_text">Posteingang Titel (Erweiterte Ansicht)</string>
     <string name="type_inbox_notification_line_number_text">Reihe Nr. %1$s</string>
+
+    <string name="type_media_notification_title_text">Media Titel</string>
+    <string name="type_media_notification_content_text">Media Inhalt</string>
+    <string name="fast_rewind_title">Schnell zurückspulen</string>
+    <string name="skip_previous_title">Voriger Titel</string>
+    <string name="play_title">Abspielen</string>
+    <string name="skip_next_title">Nächster Titel</string>
+    <string name="fast_forward_title">Schnell vorspulen</string>
 
     <string name="type_old_notification_title_text">Alt Titel</string>
     <string name="type_old_notification_content_text">Alt Inhalt</string>

@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/type_buttons_row_1"
         android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:orientation="horizontal">
 
         <Button
@@ -73,6 +73,38 @@
             android:layout_weight="1"
             android:layout_marginStart="4dp"
             android:text="@string/inbox_title" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/type_buttons_row_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/type_buttons_row_2"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp" />
+
+        <Button
+            android:id="@+id/type_big_media"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="@string/big_media_title" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp" />
 
     </LinearLayout>
 

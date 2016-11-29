@@ -12,6 +12,7 @@
     <string name="big_text_title">Text</string>
     <string name="big_picture_title">Picture</string>
     <string name="inbox_title">Inbox</string>
+    <string name="big_media_title">Media</string>
 
     <!-- Title of the action button switch -->
     <string name="show_action_buttons_title">Show action buttons</string>
@@ -42,6 +43,14 @@
     <string name="type_inbox_notification_content_text">Inbox content</string>
     <string name="type_inbox_notification_title_expanded_text">Inbox title (expanded view)</string>
     <string name="type_inbox_notification_line_number_text">This is line no. %1$s</string>
+
+    <string name="type_media_notification_title_text">Media title</string>
+    <string name="type_media_notification_content_text">Media content</string>
+    <string name="fast_rewind_title">Fast rewind</string>
+    <string name="skip_previous_title">Skip previous</string>
+    <string name="play_title">Play</string>
+    <string name="skip_next_title">Skip next</string>
+    <string name="fast_forward_title">Fast forward</string>
 
     <string name="type_old_notification_title_text">Old title</string>
     <string name="type_old_notification_content_text">Old content</string>
