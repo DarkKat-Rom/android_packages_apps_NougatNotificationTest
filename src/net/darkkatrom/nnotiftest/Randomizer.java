@@ -14,10 +14,10 @@ public class Randomizer {
             "play.png", "pitufina.png", "bob.png" };
 	public static final int[] ICONS = new int[] { android.R.drawable.ic_menu_add,
             android.R.drawable.ic_menu_call, android.R.drawable.ic_menu_day,
-			android.R.drawable.ic_menu_directions, android.R.drawable.ic_menu_edit,
+            android.R.drawable.ic_menu_directions, android.R.drawable.ic_menu_edit,
             android.R.drawable.ic_menu_mylocation, android.R.drawable.ic_menu_preferences,
             android.R.drawable.ic_menu_zoom, android.R.drawable.ic_menu_delete,
-			android.R.drawable.ic_menu_view, android.R.drawable.ic_menu_share };
+            android.R.drawable.ic_menu_view, android.R.drawable.ic_menu_share };
 	public static final int[] SMALL_ICONS = new int[] { R.drawable.ic_status_bar_image,
             R.drawable.ic_status_bar_note, R.drawable.ic_status_bar_text,
             R.drawable.ic_status_bar_message, R.drawable.ic_status_bar_media,

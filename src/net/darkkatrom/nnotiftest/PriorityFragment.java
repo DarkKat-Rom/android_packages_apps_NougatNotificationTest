@@ -47,42 +47,41 @@ public class PriorityFragment extends Fragment implements View.OnClickListener {
 	@Override
 	public void onClick(View v) {
 		Notification.Builder builder = new Notification.Builder(mContext)
-				.setSmallIcon(mRandomizer.getRandomSmallIconId())
-				.setWhen(System.currentTimeMillis())
-				.setContentInfo(getResources().getString(
+                .setSmallIcon(mRandomizer.getRandomSmallIconId())
+                .setWhen(System.currentTimeMillis())
+                .setContentInfo(getResources().getString(
                         R.string.priority_notification_info_text, count++))
-				.setContentText(getResources().getString(
+                .setContentText(getResources().getString(
                         R.string.type_default_notification_content_text))
-				.setLargeIcon(mRandomizer.getRandomImage())
+                .setLargeIcon(mRandomizer.getRandomImage())
                 .setColor(getResources().getColor(R.color.theme_accent));
 
 		switch (v.getId()) {
 		case R.id.priority_max:
 			builder.setContentTitle(getResources().getString(
                     R.string.priority_max_notification_title_text))
-					.setPriority(Notification.PRIORITY_MAX);
+                    .setPriority(Notification.PRIORITY_MAX);
 			break;
 		case R.id.priority_high:
 			builder.setContentTitle(getResources().getString(
                     R.string.priority_high_notification_title_text))
-					.setPriority(Notification.PRIORITY_HIGH);
+                    .setPriority(Notification.PRIORITY_HIGH);
 			break;
-
 		case R.id.priority_low:
 			builder.setContentTitle(getResources().getString(
                     R.string.priority_low_notification_title_text))
-					.setPriority(Notification.PRIORITY_LOW);
+                    .setPriority(Notification.PRIORITY_LOW);
 			break;
 		case R.id.priority_min:
 			builder.setContentTitle(getResources().getString(
                     R.string.priority_min_notification_title_text))
-					.setPriority(Notification.PRIORITY_MIN);
+                    .setPriority(Notification.PRIORITY_MIN);
 			break;
 		case R.id.priority_default:
 		default:
 			builder.setContentTitle(getResources().getString(
                     R.string.priority_default_notification_title_text))
-					.setPriority(Notification.PRIORITY_DEFAULT);
+                    .setPriority(Notification.PRIORITY_DEFAULT);
 			break;
 		}
 		

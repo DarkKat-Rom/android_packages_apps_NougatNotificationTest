@@ -126,12 +126,12 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 
 	private Notification getDefaultNotification(Notification.Builder builder) {
 		builder.setSmallIcon(mRandomizer.getRandomSmallIconId())
-				.setWhen(System.currentTimeMillis())
-				.setContentTitle(getResources().getString(
+                .setWhen(System.currentTimeMillis())
+                .setContentTitle(getResources().getString(
                         R.string.type_default_notification_title_text))
-				.setContentText(getResources().getString(
+                .setContentText(getResources().getString(
                         R.string.type_default_notification_content_text))
-				.setContentInfo(getResources().getString(R.string.notification_info_text))
+                .setContentInfo(getResources().getString(R.string.notification_info_text))
                 .setColor(getResources().getColor(R.color.theme_accent));
 		return builder.build();
 	}
@@ -139,16 +139,16 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 	private Notification getBigTextStyle(Notification.Builder builder) {
 		builder.setSmallIcon(R.drawable.ic_status_bar_text)
                 .setContentTitle(getResources().getString(R.string.type_text_notification_title_text))
-				.setContentText(getResources().getString(R.string.type_text_notification_content_text))
-				.setContentInfo(getResources().getString(R.string.notification_info_text))
+                .setContentText(getResources().getString(R.string.type_text_notification_content_text))
+                .setContentInfo(getResources().getString(R.string.notification_info_text))
                 .setColor(getResources().getColor(R.color.theme_accent));
 
 		return new Notification.BigTextStyle(builder)
-				.bigText(getResources().getString(R.string.big_text))
-				.setBigContentTitle(getResources().getString(
+                .bigText(getResources().getString(R.string.big_text))
+                .setBigContentTitle(getResources().getString(
                         R.string.type_text_notification_title_expanded_text))
-				.setSummaryText(getResources().getString(R.string.notification_summary_text))
-				.build();
+                .setSummaryText(getResources().getString(R.string.notification_summary_text))
+                .build();
 	}
 
 	private Notification getBigPictureStyle(Notification.Builder builder) {
@@ -159,35 +159,35 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		builder.setSmallIcon(R.drawable.ic_status_bar_image)
                 .setContentTitle(getResources().getString(
                         R.string.type_picture_notification_title_text))
-				.setContentText(getResources().getString(
+                .setContentText(getResources().getString(
                         R.string.type_picture_notification_content_text))
-				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setLargeIcon(large)
+                .setContentInfo(getResources().getString(R.string.notification_info_text))
+                .setLargeIcon(large)
                 .setColor(getResources().getColor(R.color.theme_accent));
 
 		return new Notification.BigPictureStyle(builder)
-				.bigPicture(large)
-				.bigLargeIcon(large)
-				.setBigContentTitle(getResources().getString(
+                .bigPicture(large)
+                .bigLargeIcon(large)
+                .setBigContentTitle(getResources().getString(
                         R.string.type_picture_notification_title_expanded_text))
-				.setSummaryText(getResources().getString(R.string.notification_summary_text))
-				.build();
+                .setSummaryText(getResources().getString(R.string.notification_summary_text))
+                .build();
 	}
 
 	private Notification getInboxStyle(Notification.Builder builder) {
 		Bitmap large = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
 		builder.setSmallIcon(R.drawable.ic_status_bar_message)
                 .setContentTitle(getResources().getString(R.string.type_inbox_notification_title_text))
-				.setContentText(getResources().getString(
+                .setContentText(getResources().getString(
                         R.string.type_inbox_notification_content_text))
-				.setContentInfo(getResources().getString(R.string.notification_info_text))
-				.setLargeIcon(large)
+                .setContentInfo(getResources().getString(R.string.notification_info_text))
+                .setLargeIcon(large)
                 .setColor(getResources().getColor(R.color.theme_accent));
 
-		Notification.InboxStyle n = new Notification.InboxStyle(builder)
-				.setBigContentTitle(getResources().getString(
+        Notification.InboxStyle n = new Notification.InboxStyle(builder)
+                .setBigContentTitle(getResources().getString(
                         R.string.type_inbox_notification_title_expanded_text))
-				.setSummaryText(getResources().getString(R.string.notification_summary_text));
+                .setSummaryText(getResources().getString(R.string.notification_summary_text));
 
 		// Add 10 lines
 		for (int i = 0; i < 10; i++) {
