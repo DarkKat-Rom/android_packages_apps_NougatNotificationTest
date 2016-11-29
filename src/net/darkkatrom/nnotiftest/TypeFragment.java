@@ -14,10 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.RadioGroup;
+import android.widget.RadioButton;
 import android.widget.Switch;
 
-public class TypeFragment extends Fragment implements View.OnClickListener {
+public class TypeFragment extends Fragment implements View.OnClickListener,
+        CompoundButton.OnCheckedChangeListener {
 
 	private Button mRandom, mDefault, mOld, mBigText, mBigPicture, mInbox, mBigMedia;
 
@@ -25,8 +28,8 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 
 	private Randomizer mRandomizer;
 
-	private Switch mButtonsEnabled;
-	private RadioGroup mButtonsGroup;
+	private Switch mEnableActionButtons;
+	private RadioGroup mActionButtonsGroup;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -49,8 +52,8 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		mInbox = (Button) v.findViewById(R.id.type_inbox);
 		mBigMedia = (Button) v.findViewById(R.id.type_big_media);
 
-		mButtonsEnabled = (Switch) v.findViewById(R.id.type_buttons_switch);
-		mButtonsGroup = (RadioGroup) v.findViewById(R.id.number_of_actions_buttons_group);
+		mEnableActionButtons = (Switch) v.findViewById(R.id.enable_action_buttons_switch);
+		mActionButtonsGroup = (RadioGroup) v.findViewById(R.id.number_of_actions_buttons_group);
 
 		mRandom.setOnClickListener(this);
 		mDefault.setOnClickListener(this);
@@ -59,6 +62,9 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		mBigPicture.setOnClickListener(this);
 		mInbox.setOnClickListener(this);
 		mBigMedia.setOnClickListener(this);
+
+		mEnableActionButtons.setOnCheckedChangeListener(this);
+        onCheckedChanged(mEnableActionButtons, mEnableActionButtons.isChecked());
 
 		return v;
 	}
@@ -123,6 +129,13 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 
 		mContext.sendNotification(notif);
 	}
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        for (int i = 0; i < mActionButtonsGroup.getChildCount(); i++) {
+            ((RadioButton) mActionButtonsGroup.getChildAt(i)).setEnabled(isChecked);
+        }
+    }
 
 	private Notification getDefaultNotification(Notification.Builder builder) {
 		builder.setSmallIcon(mRandomizer.getRandomSmallIconId())
@@ -246,8 +259,8 @@ public class TypeFragment extends Fragment implements View.OnClickListener {
 		if (buttons == null) {
 			// If not specified, check the input
 			buttons = 0;
-			if (mButtonsEnabled.isChecked()) {
-				switch (mButtonsGroup.getCheckedRadioButtonId()) {
+			if (mEnableActionButtons.isChecked()) {
+				switch (mActionButtonsGroup.getCheckedRadioButtonId()) {
 				case R.id.radio0:
 					buttons = 1;
 					break;
