@@ -15,9 +15,18 @@
 -->
 <resources>
 
-    <style name="AppTheme" parent="@android:style/Theme.Material.DayNight.DarkActionBar">
-        <item name="android:colorPrimary">@color/theme_primary</item>
-        <item name="android:colorPrimaryDark">@color/theme_primary_dark</item>
-        <item name="android:colorAccent">@color/theme_accent</item>
-    </style>
+    <!-- Theme  Blackout -->
+    <color name="primary_color_blackout">#ff101010</color>
+
+    <!-- Action bar background color -->
+    <color name="theme_primary">@color/primary_color_blackout</color>
+
+    <!-- Status bar background color -->
+    <color name="theme_primary_dark">#ff000000</color>
+
+    <!-- Accent color -->
+    <color name="theme_accent">#ff1976d2</color>  <!-- material blue 700 -->
+
+    <!-- Flaoting action button pressed color -->
+    <color name="floating_action_button_pressed_color">#33ffffff</color>  <!-- 20% white -->
 </resources>
