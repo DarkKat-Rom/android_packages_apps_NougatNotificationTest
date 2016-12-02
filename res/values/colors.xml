@@ -24,9 +24,9 @@
     <!-- Accent color -->
     <color name="theme_accent">#ff9c27b0</color>  <!-- material purple 500 -->
 
-    <!-- Action bar tab indicator color -->
-    <color name="tab_indicator_selected">@color/theme_accent</color>
+    <!-- Flaoting action button pressed color -->
+    <color name="floating_action_button_pressed_color">#ff7b1fa2</color>  <!-- material purple 700 -->
 
-    <!-- Action bar tab ripple color -->
-    <color name="tab_ripple">#33ffffff</color>  <!-- 20% white -->
+    <!-- Flaoting action button icon color -->
+    <color name="floating_action_button_icon_color">#ffffffff</color>  <!-- opaque white -->
 </resources>

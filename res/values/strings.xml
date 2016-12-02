@@ -1,64 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
 <resources>
 
-    <!-- Action bar tab titles -->
-    <string name="types_title">Types</string>
-    <string name="priority_title">Priority</string>
-
-    <!-- Type button titles -->
-    <string name="random_title">Random</string>
+    <!-- Type buttons -->
     <string name="default_title">Default</string>
-    <string name="old_title">Old</string>
     <string name="big_text_title">Text</string>
     <string name="big_picture_title">Picture</string>
     <string name="inbox_title">Inbox</string>
-    <string name="big_media_title">Media</string>
+    <string name="messaging_title">Message</string>
+    <string name="media_title">Media</string>
 
-    <!-- Title of the action button switch -->
-    <string name="show_action_buttons_title">Show action buttons</string>
+    <!-- Priority buttons -->
+    <string name="set_priority_title">Set priority</string>
+    <string name="priority_min_title">Minimal</string>
+    <string name="priority_low_title">Low</string>
+    <string name="priority_default_title">Default</string>
+    <string name="priority_high_title">High</string>
+    <string name="priority_max_title">Maximal</string>
 
-    <!-- Priority button titles -->
-    <string name="max_priority_title">Max. priority</string>
-    <string name="high_priority_title">High priority</string>
-    <string name="default_priority_title">Default priority</string>
-    <string name="low_priority_title">Low priority</string>
-    <string name="min_priority_title">Min. priority</string>
+    <!-- Action buttons -->
+    <string name="show_action_buttons_title">Show Actions</string>
 
     <!-- Notification text -->
-    <string name="notification_info_text">Info</string>
-    <string name="notification_summary_text">Summary</string>
+    <string name="notification_sub_text">Sub text</string>
+    <string name="notification_title">Notification title</string>
+    <string name="notification_content_text">Content text</string>
     <string name="notification_action_text">Action %1$s</string>
 
-    <string name="type_default_notification_title_text">Default title</string>
-
-    <string name="type_text_notification_title_text">Text title</string>
-    <string name="type_text_notification_content_text">Text content</string>
-    <string name="type_text_notification_title_expanded_text">Text title (expanded view)</string>
-
-    <string name="type_picture_notification_title_text">Picture title</string>
-    <string name="type_picture_notification_content_text">Picture content</string>
-    <string name="type_picture_notification_title_expanded_text">Picture title (expanded view)</string>
-
-    <string name="type_inbox_notification_title_text">Inbox title</string>
-    <string name="type_inbox_notification_content_text">Inbox content</string>
-    <string name="type_inbox_notification_title_expanded_text">Inbox title (expanded view)</string>
-    <string name="type_inbox_notification_line_number_text">This is line no. %1$s</string>
-
-    <string name="type_media_notification_title_text">Media title</string>
-    <string name="type_media_notification_content_text">Media content</string>
+    <string name="line_number_text">This is line no. %1$s</string>
+    <string name="conversation_title">Conversation title</string>
     <string name="fast_rewind_title">Fast rewind</string>
     <string name="skip_previous_title">Skip previous</string>
     <string name="play_title">Play</string>
     <string name="skip_next_title">Skip next</string>
     <string name="fast_forward_title">Fast forward</string>
-
-    <string name="type_old_notification_title_text">Old title</string>
-    <string name="type_old_notification_content_text">Old content</string>
-
-    <string name="priority_notification_info_text">no. %1$s</string>
-    <string name="priority_max_notification_title_text">Maximal priority notification</string>
-    <string name="priority_high_notification_title_text">High priority notification</string>
-    <string name="priority_default_notification_title_text">Default priority notification</string>
-    <string name="priority_low_notification_title_text">Low priority notification</string>
-    <string name="priority_min_notification_title_text">Minimun priority notification</string>
 </resources>

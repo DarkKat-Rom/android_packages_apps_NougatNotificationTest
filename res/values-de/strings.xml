@@ -15,59 +15,32 @@
 -->
 <resources>
 
-    <string name="types_title">Typen</string>
-    <string name="priority_title">Prioritäten</string>
-
-    <string name="random_title">Zufällig</string>
     <string name="default_title">Standard</string>
-    <string name="old_title">Alt</string>
     <string name="big_text_title">Text</string>
     <string name="big_picture_title">Bild</string>
     <string name="inbox_title">Posteing.</string>
-    <string name="big_media_title">Media</string>
+    <string name="messaging_title">Nachr.</string>
+    <string name="media_title">Media</string>
 
-    <string name="show_action_buttons_title">Aktion Schaltflächen anzeigen</string>
+    <string name="set_priority_title">Priorität festlegen</string>
+    <string name="priority_min_title">Minimal</string>
+    <string name="priority_low_title">Niedrig</string>
+    <string name="priority_default_title">Standard</string>
+    <string name="priority_high_title">Hoch</string>
+    <string name="priority_max_title">Maximal</string>
 
-    <string name="max_priority_title">Max. Priorität</string>
-    <string name="high_priority_title">Hohe Priorität</string>
-    <string name="default_priority_title">Standard Priorität</string>
-    <string name="low_priority_title">Niedrige Priorität</string>
-    <string name="min_priority_title">Min. Priorität</string>
+    <string name="show_action_buttons_title">Aktionen anzeigen</string>
 
-    <string name="notification_info_text">Info</string>
-    <string name="notification_summary_text">Zusammenfassung</string>
+    <string name="notification_sub_text">Untertext</string>
+    <string name="notification_title">Benachrichtigungstitel</string>
+    <string name="notification_content_text">Inhaltstext</string>
     <string name="notification_action_text">Aktion %1$s</string>
 
-    <string name="type_default_notification_title_text">Standard Titel</string>
-
-    <string name="type_text_notification_title_text">Text Titel</string>
-    <string name="type_text_notification_content_text">Text Inhalt</string>
-    <string name="type_text_notification_title_expanded_text">Text Titel (Erweiterte Ansicht)</string>
-
-    <string name="type_picture_notification_title_text">Bild Titel</string>
-    <string name="type_picture_notification_content_text">Bild Inhalt</string>
-    <string name="type_picture_notification_title_expanded_text">Bild Titel (Erweiterte Ansicht)</string>
-
-    <string name="type_inbox_notification_title_text">Posteingang Titel</string>
-    <string name="type_inbox_notification_content_text">Posteingang Inhalt</string>
-    <string name="type_inbox_notification_title_expanded_text">Posteingang Titel (Erweiterte Ansicht)</string>
-    <string name="type_inbox_notification_line_number_text">Reihe Nr. %1$s</string>
-
-    <string name="type_media_notification_title_text">Media Titel</string>
-    <string name="type_media_notification_content_text">Media Inhalt</string>
+    <string name="line_number_text">Reihe Nr. %1$s</string>
+    <string name="conversation_title">Konversationstitel</string>
     <string name="fast_rewind_title">Schnell zurückspulen</string>
     <string name="skip_previous_title">Voriger Titel</string>
     <string name="play_title">Abspielen</string>
     <string name="skip_next_title">Nächster Titel</string>
     <string name="fast_forward_title">Schnell vorspulen</string>
-
-    <string name="type_old_notification_title_text">Alt Titel</string>
-    <string name="type_old_notification_content_text">Alt Inhalt</string>
-
-    <string name="priority_notification_info_text">Nr. %1$s</string>
-    <string name="priority_max_notification_title_text">Benachrichtigung mit maximaler Priorität</string>
-    <string name="priority_high_notification_title_text">Benachrichtigung mit hoher Priorität</string>
-    <string name="priority_default_notification_title_text">Benachrichtigung mit standard Priorität</string>
-    <string name="priority_low_notification_title_text">Benachrichtigung mit niedrigre Priorität</string>
-    <string name="priority_min_notification_title_text">Benachrichtigung mit minimaler Priorität</string>
 </resources>
