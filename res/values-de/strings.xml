@@ -43,4 +43,12 @@
     <string name="play_title">Abspielen</string>
     <string name="skip_next_title">Nächster Titel</string>
     <string name="fast_forward_title">Schnell vorspulen</string>
+
+    <string name="settings_title">Einstellungen</string>
+    <string name="show_emphasized_actions_title">Aktionen Hervorheben</string>
+    <string name="show_emphasized_actions_summary">Aktivieren um Aktionsschaltlächen hervorzuheben. Dies weist auf eine Vollbild Benachrichtigung hin, wie z.B. ein eingehender Anruf. Die Benachrichtigung wird als Heads-Up angezeigt.</string>
+    <string name="show_tombstone_actions_title">Aktionen deaktiviert anzeigen</string>
+    <string name="show_tombstone_actions_summary">Aktivieren um Aktionsschaltlächen deaktiviert anzuzeigen. Dies weist auf Aktionsschaltlächen ohne Aktion hin.</string>
+    <string name="use_default_notification_color_title">Benachrichtigungsfarbe</string>
+    <string name="use_default_notification_color_summary">Aktivieren um die Standard Benachrichigungsfarbe zu benutzen, deaktivieren um die App Akzentfarbe zu benutzen.</string>
 </resources>

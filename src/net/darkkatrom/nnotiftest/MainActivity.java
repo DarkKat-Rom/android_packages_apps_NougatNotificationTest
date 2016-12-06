@@ -25,6 +25,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.CompoundButton;
@@ -34,16 +37,19 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.ToggleButton;
 
+import net.darkkatrom.nnotiftest.utils.PreferenceUtils;
+
 public class MainActivity extends Activity implements  View.OnClickListener,
         CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
 
-    private static final String TYPE_BUTTONS_CHECKED_ID = "type_buttons_checked_id";
-    private static final String SET_PRIORITY_CHECKED    = "set_priority_checked";
-    private static final String SHOW_ACTION_BUTTONS     = "show_action_buttons";
+    public static final String TYPE_BUTTONS_CHECKED_ID = "type_button_checked_id";
+    public static final String SET_PRIORITY_CHECKED    = "set_priority_checked";
+    public static final String SHOW_ACTION_BUTTONS     = "show_action_buttons";
 
-    private int NOTIF_REF = 1;
+    public int NOTIF_REF = 1;
+
+    private PreferenceUtils mUtils;
     private NotificationManager mManager;
-
     private Randomizer mRandomizer;
 
     private RadioGroup mTypeButtonsGroup;
@@ -58,6 +64,7 @@ public class MainActivity extends Activity implements  View.OnClickListener,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mUtils = new PreferenceUtils(getApplicationContext());
         mManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mRandomizer = new Randomizer(this);
 
@@ -82,6 +89,12 @@ public class MainActivity extends Activity implements  View.OnClickListener,
             onCheckedChanged(mSetPriority, mSetPriority.isChecked());
             mShowActionButtons.setChecked(true);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 
     @Override
@@ -150,15 +163,20 @@ public class MainActivity extends Activity implements  View.OnClickListener,
             .setWhen(System.currentTimeMillis())
             .setSubText(getResources().getString(R.string.notification_sub_text))
             .setContentTitle(getResources().getString(R.string.notification_title))
-            .setContentText(getResources().getString(R.string.notification_content_text))
-            .setColor(getResources().getColor(R.color.theme_accent));
-
-        if (mSetPriority.isChecked()) {
-            setPriority(builder);
-        }
+            .setContentText(getResources().getString(R.string.notification_content_text));
 
         if (mTypeButtonsGroup.getCheckedRadioButtonId() != R.id.type_media) {
             setButtons(builder);
+        }
+        if (mSetPriority.isChecked()) {
+            setPriority(builder);
+        }
+        if (mUtils.getShowEmphasizedActions() && !mUtils.getShowTombstoneActions()) {
+            PendingIntent intent = PendingIntent.getActivity(this, 0, new Intent(), 0);
+            builder.setFullScreenIntent(intent, false);
+        }
+        if (!mUtils.getUseDefaultNotificationColor()) {
+            builder.setColor(getResources().getColor(R.color.theme_accent));
         }
 
         switch (mTypeButtonsGroup.getCheckedRadioButtonId()) {
@@ -184,6 +202,10 @@ public class MainActivity extends Activity implements  View.OnClickListener,
         }
 
         sendNotification(notif);
+    }
+
+    public void showSettings(MenuItem item) {
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 
     private void setPriority(Notification.Builder builder) {
@@ -227,8 +249,10 @@ public class MainActivity extends Activity implements  View.OnClickListener,
         // Add as many buttons as you have to
         PendingIntent intent = PendingIntent.getActivity(this, 0, new Intent(), 0);
         for (int i = 0; i < buttons; i++) {
+            boolean showTombstoneActions = mUtils.getShowTombstoneActions()
+                    && !mUtils.getShowEmphasizedActions() && i != 1;
             builder.addAction(mRandomizer.getRandomIconId(), getResources().getString(
-                    R.string.notification_action_text, (i + 1)), intent);
+                    R.string.notification_action_text, (i + 1)), showTombstoneActions ? null : intent);
         }
     }
 
