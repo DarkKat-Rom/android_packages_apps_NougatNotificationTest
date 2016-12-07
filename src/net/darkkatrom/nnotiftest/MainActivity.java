@@ -22,8 +22,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,6 +62,8 @@ public class MainActivity extends Activity implements  View.OnClickListener,
     private Switch mShowActionButtons;
     private ImageView mFab;
 
+    private GradientDrawable mFabBackground;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +81,9 @@ public class MainActivity extends Activity implements  View.OnClickListener,
         mSetPriority = (Switch) findViewById(R.id.set_priority_switch);
         mShowActionButtons = (Switch) findViewById(R.id.show_action_buttons_switch);
         mFab = (ImageView) findViewById(R.id.floating_action_button);
+
+        mFabBackground = (GradientDrawable) findViewById(R.id.floating_action_button_container)
+                .getBackground().mutate();
 
         mTypeButtonsGroup.setOnCheckedChangeListener(this);
 
@@ -176,7 +183,7 @@ public class MainActivity extends Activity implements  View.OnClickListener,
             builder.setFullScreenIntent(intent, false);
         }
         if (!mUtils.getUseDefaultNotificationColor()) {
-            builder.setColor(getResources().getColor(R.color.theme_accent));
+            builder.setColor(mUtils.getNotificationColor());
         }
 
         switch (mTypeButtonsGroup.getCheckedRadioButtonId()) {
@@ -365,6 +372,13 @@ public class MainActivity extends Activity implements  View.OnClickListener,
             onCheckedChanged(mShowActionButtons, false);
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mFabBackground.setColor(ColorStateList.valueOf(mUtils.getNotificationColor()));
+    }
+    
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

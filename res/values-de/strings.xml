@@ -51,4 +51,5 @@
     <string name="show_tombstone_actions_summary">Aktivieren um Aktionsschaltlächen deaktiviert anzuzeigen. Dies weist auf Aktionsschaltlächen ohne Aktion hin.</string>
     <string name="use_default_notification_color_title">Benachrichtigungsfarbe</string>
     <string name="use_default_notification_color_summary">Aktivieren um die Standard Benachrichigungsfarbe zu benutzen, deaktivieren um die App Akzentfarbe zu benutzen.</string>
+    <string name="notification_color_title">Benachrichigungsfarbe</string>
 </resources>

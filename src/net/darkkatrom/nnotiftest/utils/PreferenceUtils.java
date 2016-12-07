@@ -29,17 +29,20 @@ public final class PreferenceUtils {
     public static final String USE_PRIORITY        = "use_priority";
     public static final String SHOW_ACTION_BUTTONS = "show_action_buttons";
 
-    public static final String SHOW_EMPHASIZED_ACTIONS         = "show_emphasized_actions";
+    public static final String SHOW_EMPHASIZED_ACTIONS        = "show_emphasized_actions";
     public static final String SHOW_TOMBSTONE_ACTIONS         = "show_tombstone_actions";
     public static final String USE_DEFAULT_NOTIFICATION_COLOR = "use_default_notification_color";
+    public static final String NOTIFICATION_COLOR             = "notification_color";
 
     public static final int STYLE_DEFAULT = 0;
 
     private static PreferenceUtils sInstance;
+    private final Context mContext;
 
     private final SharedPreferences mPreferences;
 
     public PreferenceUtils(final Context context) {
+        mContext = context;
         mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
@@ -100,5 +103,10 @@ public final class PreferenceUtils {
 
     public boolean getUseDefaultNotificationColor() {
         return mPreferences.getBoolean(USE_DEFAULT_NOTIFICATION_COLOR, false);
+    }
+
+    public int getNotificationColor() {
+        return mPreferences.getInt(NOTIFICATION_COLOR,
+                mContext.getResources().getColor(R.color.theme_accent));
     }
 }
