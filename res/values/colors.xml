@@ -27,6 +27,12 @@
     <!-- Flaoting action button pressed color -->
     <color name="floating_action_button_pressed_color">#1f000000</color>  <!-- 12% black -->
 
-    <!-- Flaoting action button icon color -->
-    <color name="floating_action_button_icon_color">#ffffffff</color>  <!-- opaque white -->
+    <!-- Flaoting action button icon color on light greycale backgrounds -->
+    <color name="floating_action_button_icon_color_dark">#8a000000</color>  <!-- 54% black -->
+
+    <!-- Flaoting action button icon color on dark or non greycale backgrounds -->
+    <color name="floating_action_button_icon_color_light">#ffffffff</color>  <!-- opaque white -->
+
+    <!-- Default notification color -->
+    <color name="default_notification_color">#757575</color> <!-- Gray 600 -->
 </resources>

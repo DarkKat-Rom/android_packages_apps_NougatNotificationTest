@@ -49,7 +49,8 @@
     <string name="show_emphasized_actions_summary">Aktivieren um Aktionsschaltlächen hervorzuheben. Dies weist auf eine Vollbild Benachrichtigung hin, wie z.B. ein eingehender Anruf. Die Benachrichtigung wird als Heads-Up angezeigt.</string>
     <string name="show_tombstone_actions_title">Aktionen deaktiviert anzeigen</string>
     <string name="show_tombstone_actions_summary">Aktivieren um Aktionsschaltlächen deaktiviert anzuzeigen. Dies weist auf Aktionsschaltlächen ohne Aktion hin.</string>
-    <string name="use_default_notification_color_title">Benachrichtigungsfarbe</string>
-    <string name="use_default_notification_color_summary">Aktivieren um die Standard Benachrichigungsfarbe zu benutzen, deaktivieren um die App Akzentfarbe zu benutzen.</string>
+    <string name="use_default_notification_color_title">Standard benutzen</string>
+    <string name="use_default_notification_color_summary">Aktivieren um die Standard Benachrichigungsfarbe zu benutzen, deaktivieren um die Farbe zu wählen.</string>
     <string name="notification_color_title">Benachrichigungsfarbe</string>
+    <string name="color_title">Farbe</string>
 </resources>

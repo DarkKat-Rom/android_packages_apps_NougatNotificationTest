@@ -19,6 +19,7 @@ package net.darkkatrom.nnotiftest.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 
 import net.darkkatrom.nnotiftest.R;
@@ -29,6 +30,7 @@ public final class PreferenceUtils {
     public static final String USE_PRIORITY        = "use_priority";
     public static final String SHOW_ACTION_BUTTONS = "show_action_buttons";
 
+    public static final String CAT_NOTIFICATION_COLOR         = "cat_notification_color";
     public static final String SHOW_EMPHASIZED_ACTIONS        = "show_emphasized_actions";
     public static final String SHOW_TOMBSTONE_ACTIONS         = "show_tombstone_actions";
     public static final String USE_DEFAULT_NOTIFICATION_COLOR = "use_default_notification_color";
@@ -106,7 +108,39 @@ public final class PreferenceUtils {
     }
 
     public int getNotificationColor() {
-        return mPreferences.getInt(NOTIFICATION_COLOR,
-                mContext.getResources().getColor(R.color.theme_accent));
+        if (getUseDefaultNotificationColor()) {
+            return mContext.getResources().getColor(R.color.default_notification_color);
+        } else {
+            return mPreferences.getInt(NOTIFICATION_COLOR,
+                    mContext.getResources().getColor(R.color.theme_accent));
+        }
+    }
+
+    public int getFabIconColor() {
+        return mContext.getResources().getColor(
+                isColorGrayscale(getNotificationColor()) && !isColorDark(getNotificationColor())
+                        ? R.color.floating_action_button_icon_color_dark
+                        : R.color.floating_action_button_icon_color_light);
+    }
+
+    public static boolean isColorGrayscale(int color) {
+        int r = Color.red(color);
+        int g = Color.green(color);
+        int b = Color.blue(color);
+
+        return Math.abs(r - g) < 20
+                && Math.abs(r - b) < 20
+                && Math.abs(g - b) < 20;
+    }
+
+    private static boolean isColorDark(int color) {
+        double a = 1- (0.299 * Color.red(color)
+                + 0.587 * Color.green(color)
+                + 0.114 * Color.blue(color)) / 255;
+        if (a < 0.5) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

@@ -54,7 +54,8 @@
     <string name="show_emphasized_actions_summary">Enable to emphasize action buttons. This indicates a full screen notification like receiving an incomming call. The notification will be shown as heads up.</string>
     <string name="show_tombstone_actions_title">Show actions disabled</string>
     <string name="show_tombstone_actions_summary">Enable to show actions disabled. This indicates an action button without an action.</string>
-    <string name="use_default_notification_color_title">Notification color</string>
-    <string name="use_default_notification_color_summary">Enable to use the default notification color, disable to ue the app accent color.</string>
+    <string name="use_default_notification_color_title">Use default</string>
+    <string name="use_default_notification_color_summary">Enable to use the default notification color, disable to choose a color.</string>
     <string name="notification_color_title">Notification color</string>
+    <string name="color_title">Color</string>
 </resources>

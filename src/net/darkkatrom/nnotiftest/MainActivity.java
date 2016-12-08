@@ -377,6 +377,7 @@ public class MainActivity extends Activity implements  View.OnClickListener,
     public void onResume() {
         super.onResume();
         mFabBackground.setColor(ColorStateList.valueOf(mUtils.getNotificationColor()));
+        mFab.setImageTintList(ColorStateList.valueOf(mUtils.getFabIconColor()));
     }
     
 

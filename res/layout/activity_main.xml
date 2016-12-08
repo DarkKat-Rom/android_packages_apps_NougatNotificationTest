@@ -240,7 +240,6 @@
             android:padding="16dp"
             android:background="@drawable/floating_action_button_bg_selector"
             android:src="@drawable/ic_send"
-            android:tint="@color/floating_action_button_icon_color"
             android:scaleType="center" />
 
     </FrameLayout>
