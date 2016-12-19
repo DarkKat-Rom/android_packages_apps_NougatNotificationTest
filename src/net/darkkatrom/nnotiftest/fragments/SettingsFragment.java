@@ -16,11 +16,15 @@
 
 package net.darkkatrom.nnotiftest.fragments;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 
+import net.darkkatrom.dkcolorpicker.fragment.ColorPickerFragment;
+import net.darkkatrom.dkcolorpicker.preference.ColorPickerPreference;
 import net.darkkatrom.nnotiftest.R;
 import net.darkkatrom.nnotiftest.utils.PreferenceUtils;
 
@@ -46,6 +50,22 @@ public class SettingsFragment extends PreferenceFragment implements
         mShowTombstoneActions.setEnabled(!mShowEmphasizedActions.isChecked());
         mShowEmphasizedActions.setEnabled(!mShowTombstoneActions.isChecked());
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == ColorPickerPreference.RESULT_REQUEST_CODE
+                && resultCode == Activity.RESULT_OK) {
+            Bundle extras = data.getExtras();
+            String extraNewColor = ColorPickerFragment.KEY_NEW_COLOR;
+            if (extras != null && extras.getInt(extraNewColor) != 0) {
+                String extraPrefKey = ColorPickerPreference.PREFERENCE_KEY;
+                ((ColorPickerPreference) findPreference(extras.getString(extraPrefKey)))
+                        .setNewColor(extras.getInt(extraNewColor), true);
+            }
+        }
     }
 
     @Override

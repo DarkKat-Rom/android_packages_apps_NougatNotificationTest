@@ -16,52 +16,42 @@
 
 package net.darkkatrom.nnotiftest;
 
-import android.app.FragmentManager;
-import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.view.MenuItem;
+import android.preference.PreferenceFragment;
+import android.os.Bundle;
 
-import net.darkkatrom.nnotiftest.R;
+import net.darkkatrom.dkcolorpicker.fragment.ColorPickerFragment;
+import net.darkkatrom.dkcolorpicker.preference.ColorPickerPreference;
 import net.darkkatrom.nnotiftest.fragments.SettingsFragment;
 
-public class SettingsActivity extends PreferenceActivity implements
-        FragmentManager.OnBackStackChangedListener {
+public class SettingsActivity extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-
-        getFragmentManager().addOnBackStackChangedListener(this);
-        getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new SettingsFragment())
-                .commit();
+        if (savedInstanceState == null && getIntent().getStringExtra(EXTRA_SHOW_FRAGMENT) == null) {
+            getFragmentManager().beginTransaction()
+                    .replace(android.R.id.content, new SettingsFragment())
+                    .commit();
+        }
     }
 
     @Override
-    public void onBackStackChanged() {
-        if (getBackStackEntryCount() == 0) {
-            setTitle(R.string.settings_title);
+    public boolean onPreferenceStartFragment(PreferenceFragment caller, Preference pref) {
+        if (pref instanceof ColorPickerPreference) {
+            startPreferencePanel(pref.getFragment(), pref.getExtras(), pref.getTitleRes(),
+                    pref.getTitle(), caller, ColorPickerPreference.RESULT_REQUEST_CODE);
         } else {
-            setTitle(R.string.color_picker_fragment_title);
+            startPreferencePanel(pref.getFragment(), pref.getExtras(), pref.getTitleRes(),
+                    pref.getTitle(), null, 0);
         }
+        return true;
     }
-
 
     @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private int getBackStackEntryCount() {
-        return getFragmentManager().getBackStackEntryCount();
+    protected boolean isValidFragment(String fragmentName) {
+        return ColorPickerFragment.class.getName().equals(fragmentName);
     }
 }

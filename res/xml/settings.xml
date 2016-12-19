@@ -44,6 +44,7 @@
         <net.darkkatrom.dkcolorpicker.preference.ColorPickerPreference
             android:key="notification_color"
             android:title="@string/color_title"
+            app:pickerSubtitle="@string/notification_color_title"
             app:defaultColor="@color/theme_accent"
             app:resetColor1="@color/theme_accent" />
 
