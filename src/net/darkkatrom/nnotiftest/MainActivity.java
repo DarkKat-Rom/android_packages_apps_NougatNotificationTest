@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.RemoteInput;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -43,6 +44,8 @@ import net.darkkatrom.nnotiftest.utils.PreferenceUtils;
 
 public class MainActivity extends Activity implements  View.OnClickListener,
         CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
+
+    public static final String KEY_TEXT_REPLY = "key_text_reply";
 
     public static final String TYPE_BUTTONS_CHECKED_ID = "type_button_checked_id";
     public static final String SET_PRIORITY_CHECKED    = "set_priority_checked";
@@ -96,6 +99,21 @@ public class MainActivity extends Activity implements  View.OnClickListener,
             onCheckedChanged(mSetPriority, mSetPriority.isChecked());
             mShowActionButtons.setChecked(true);
         }
+
+        Bundle remoteInput = RemoteInput.getResultsFromIntent(getIntent());
+        if (remoteInput != null) {
+            CharSequence replyText = remoteInput.getCharSequence(KEY_TEXT_REPLY);
+            Notification repliedNotification = new Notification.Builder(this)
+                .setSmallIcon(mRandomizer.getRandomIconId())
+                .setShowWhen(true)
+                .setWhen(System.currentTimeMillis())
+                .setContentTitle(getResources().getString(R.string.notification_action_replied_title))
+                .setContentText(getResources().getString(R.string.notification_action_replied_text,
+                        replyText))
+                .build();
+            sendNotification(repliedNotification);
+        }
+
     }
 
     @Override
@@ -255,11 +273,16 @@ public class MainActivity extends Activity implements  View.OnClickListener,
 
         // Add as many buttons as you have to
         PendingIntent intent = PendingIntent.getActivity(this, 0, new Intent(), 0);
+        boolean showReplyAction = mUtils.getShowReplyAction();
         for (int i = 0; i < buttons; i++) {
             boolean showTombstoneActions = mUtils.getShowTombstoneActions()
                     && !mUtils.getShowEmphasizedActions() && i != 1;
-            builder.addAction(mRandomizer.getRandomIconId(), getResources().getString(
-                    R.string.notification_action_text, (i + 1)), showTombstoneActions ? null : intent);
+            if (showReplyAction && i == 0) {
+                builder.addAction(getReplyAction(intent));
+            } else {
+                builder.addAction(mRandomizer.getRandomIconId(), getResources().getString(
+                        R.string.notification_action_text, (i + 1)), showTombstoneActions ? null : intent);
+            }
         }
     }
 
@@ -267,6 +290,19 @@ public class MainActivity extends Activity implements  View.OnClickListener,
         builder.setSmallIcon(mRandomizer.getRandomSmallIconId());
 
         return builder.build();
+    }
+
+    private Notification.Action getReplyAction(PendingIntent intent) {
+        String replyHint = getResources().getString(R.string.notification_action_reply_hint);
+        RemoteInput remoteInput = new RemoteInput.Builder(KEY_TEXT_REPLY)
+            .setLabel(replyHint)
+            .build();
+
+        Notification.Action action = new Notification.Action.Builder(mRandomizer.getRandomIconId(),
+                getResources().getString(R.string.notification_action_reply_title), intent)
+                .addRemoteInput(remoteInput)
+                .build();
+        return action;
     }
 
     private Notification getBigTextStyle(Notification.Builder builder) {
