@@ -33,6 +33,7 @@ public final class PreferenceUtils {
     public static final String CAT_NOTIFICATION_COLOR         = "cat_notification_color";
     public static final String SHOW_EMPHASIZED_ACTIONS        = "show_emphasized_actions";
     public static final String SHOW_TOMBSTONE_ACTIONS         = "show_tombstone_actions";
+    public static final String SHOW_REPLY_ACTION              = "show_reply_action";
     public static final String USE_DEFAULT_NOTIFICATION_COLOR = "use_default_notification_color";
     public static final String NOTIFICATION_COLOR             = "notification_color";
 
@@ -97,6 +98,10 @@ public final class PreferenceUtils {
 
     public boolean getShowTombstoneActions() {
         return mPreferences.getBoolean(SHOW_TOMBSTONE_ACTIONS, false);
+    }
+
+    public boolean getShowReplyAction() {
+        return mPreferences.getBoolean(SHOW_REPLY_ACTION, false);
     }
 
     public void setUseDefaultNotificationColor(boolean use) {
