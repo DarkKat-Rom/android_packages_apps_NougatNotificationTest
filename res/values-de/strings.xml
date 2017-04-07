@@ -35,6 +35,10 @@
     <string name="notification_title">Benachrichtigungstitel</string>
     <string name="notification_content_text">Inhaltstext</string>
     <string name="notification_action_text">Aktion %1$s</string>
+    <string name="notification_action_reply_title">Antworten</string>
+    <string name="notification_action_reply_hint">Antwort eingeben</string>
+    <string name="notification_action_replied_title">Antwort empfangen</string>
+    <string name="notification_action_replied_text">Eingegebene Antwort: %1$s</string>
 
     <string name="line_number_text">Reihe Nr. %1$s</string>
     <string name="conversation_title">Konversationstitel</string>
@@ -49,6 +53,8 @@
     <string name="show_emphasized_actions_summary">Aktivieren um Aktionsschaltlächen hervorzuheben. Dies weist auf eine Vollbild Benachrichtigung hin, wie z.B. ein eingehender Anruf. Die Benachrichtigung wird als Heads-Up angezeigt.</string>
     <string name="show_tombstone_actions_title">Aktionen deaktiviert anzeigen</string>
     <string name="show_tombstone_actions_summary">Aktivieren um Aktionsschaltlächen deaktiviert anzuzeigen. Dies weist auf Aktionsschaltlächen ohne Aktion hin.</string>
+    <string name="show_reply_action_title">Antworten Aktion anzeigen</string>
+    <string name="show_reply_action_summary">Aktivieren um eine Antworten Aktion anzuzeigen.</string>
     <string name="use_default_notification_color_title">Standard benutzen</string>
     <string name="use_default_notification_color_summary">Aktivieren um die Standard Benachrichigungsfarbe zu benutzen, deaktivieren um die Farbe zu wählen.</string>
     <string name="notification_color_title">Benachrichigungsfarbe</string>

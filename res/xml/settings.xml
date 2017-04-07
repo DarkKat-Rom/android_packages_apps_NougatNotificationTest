@@ -31,6 +31,12 @@
         android:summary="@string/show_tombstone_actions_summary"
         android:defaultValue="false" />
 
+    <SwitchPreference
+        android:key="show_reply_action"
+        android:title="@string/show_reply_action_title"
+        android:summary="@string/show_reply_action_summary"
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="cat_notification_color"
         android:title="@string/notification_color_title">
