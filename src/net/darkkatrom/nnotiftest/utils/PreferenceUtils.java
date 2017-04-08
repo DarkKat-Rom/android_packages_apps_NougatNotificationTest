@@ -26,6 +26,9 @@ import net.darkkatrom.nnotiftest.R;
 
 public final class PreferenceUtils {
 
+    public static final String TEXT_REPLY = "key_text_reply";
+    public static final String NOTIFICATION_ID = "notification_id";
+
     public static final String NOTIFICATION_STYLE  = "notification_style";
     public static final String USE_PRIORITY        = "use_priority";
     public static final String SHOW_ACTION_BUTTONS = "show_action_buttons";
@@ -126,6 +129,14 @@ public final class PreferenceUtils {
                 isColorGrayscale(getNotificationColor()) && !isColorDark(getNotificationColor())
                         ? R.color.floating_action_button_icon_color_dark
                         : R.color.floating_action_button_icon_color_light);
+    }
+
+    public int getNotificationId() {
+        return mPreferences.getInt(NOTIFICATION_ID, 1);
+    }
+
+    public void setNotificationId(int id) {
+        mPreferences.edit().putInt(NOTIFICATION_ID, id).commit();
     }
 
     public static boolean isColorGrayscale(int color) {
