@@ -41,13 +41,10 @@ import android.widget.Switch;
 import android.widget.ToggleButton;
 
 import net.darkkatrom.nnotiftest.utils.PreferenceUtils;
+import net.darkkatrom.nnotiftest.utils.Randomizer;
 
 public class MainActivity extends Activity implements  View.OnClickListener,
         CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
-
-    public static final String TYPE_BUTTONS_CHECKED_ID = "type_button_checked_id";
-    public static final String SET_PRIORITY_CHECKED    = "set_priority_checked";
-    public static final String SHOW_ACTION_BUTTONS     = "show_action_buttons";
 
     private PreferenceUtils mUtils;
     private NotificationManager mManager;
@@ -386,9 +383,10 @@ public class MainActivity extends Activity implements  View.OnClickListener,
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         final View checkedTypeButton = findViewById(savedInstanceState.getInt(
-                TYPE_BUTTONS_CHECKED_ID, R.id.type_default));
-        final boolean priorityChecked = savedInstanceState.getBoolean(SET_PRIORITY_CHECKED, false);
-        final boolean showActionButtons = savedInstanceState.getBoolean(SHOW_ACTION_BUTTONS, false);
+                PreferenceUtils.TYPE_BUTTONS_CHECKED_ID, R.id.type_default));
+        final boolean priorityChecked = savedInstanceState.getBoolean(PreferenceUtils.USE_PRIORITY, false);
+        final boolean showActionButtons = savedInstanceState.getBoolean(
+                PreferenceUtils.SHOW_ACTION_BUTTONS, false);
 
         if (checkedTypeButton == null) {
             updateTypeState(findViewById(R.id.type_default));
@@ -413,9 +411,10 @@ public class MainActivity extends Activity implements  View.OnClickListener,
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putInt(TYPE_BUTTONS_CHECKED_ID, mTypeButtonsGroup.getCheckedRadioButtonId());
-        outState.putBoolean(SET_PRIORITY_CHECKED, mSetPriority.isChecked());
-        outState.putBoolean(SHOW_ACTION_BUTTONS, mShowActionButtons.isChecked());
+        outState.putInt(PreferenceUtils.TYPE_BUTTONS_CHECKED_ID,
+                mTypeButtonsGroup.getCheckedRadioButtonId());
+        outState.putBoolean(PreferenceUtils.USE_PRIORITY, mSetPriority.isChecked());
+        outState.putBoolean(PreferenceUtils.SHOW_ACTION_BUTTONS, mShowActionButtons.isChecked());
         super.onSaveInstanceState(outState);
     }
 
