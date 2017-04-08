@@ -29,9 +29,10 @@ public final class PreferenceUtils {
     public static final String TEXT_REPLY = "key_text_reply";
     public static final String NOTIFICATION_ID = "notification_id";
 
-    public static final String NOTIFICATION_STYLE  = "notification_style";
-    public static final String USE_PRIORITY        = "use_priority";
-    public static final String SHOW_ACTION_BUTTONS = "show_action_buttons";
+    public static final String NOTIFICATION_STYLE      = "notification_style";
+    public static final String USE_PRIORITY            = "use_priority";
+    public static final String TYPE_BUTTONS_CHECKED_ID = "type_button_checked_id";
+    public static final String SHOW_ACTION_BUTTONS     = "show_action_buttons";
 
     public static final String CAT_NOTIFICATION_COLOR         = "cat_notification_color";
     public static final String SHOW_EMPHASIZED_ACTIONS        = "show_emphasized_actions";
