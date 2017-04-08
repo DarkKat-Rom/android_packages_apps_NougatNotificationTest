@@ -10,12 +10,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import net.darkkatrom.nnotiftest.utils.PreferenceUtils;
+import net.darkkatrom.nnotiftest.utils.Randomizer;
 
 public class NotificationReplyReceiver extends BroadcastReceiver {
 
     public static final String ACTION_NOTIFICATION_REPLY =
             "net.darkkatrom.nnotiftest.ACTION_NOTIFICATION_REPLY";
-    public static final int REPLY_REQUEST_CODE = 1;
 
     @Override
     public void onReceive(Context context, Intent intent) {

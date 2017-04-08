@@ -1,12 +1,14 @@
-package net.darkkatrom.nnotiftest;
+package net.darkkatrom.nnotiftest.utils;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import net.darkkatrom.nnotiftest.R;
 
 public class Randomizer {
     public static final String[] IMAGES = new String[] { "nougat.png", "io.png", "design.png",
