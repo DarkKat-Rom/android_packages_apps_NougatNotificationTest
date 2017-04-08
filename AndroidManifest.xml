@@ -22,6 +22,16 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings_title"/>
+
+        <receiver
+            android:name=".NotificationReplyReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="net.darkkatrom.nnotiftest.ACTION_NOTIFICATION_REPLY"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
