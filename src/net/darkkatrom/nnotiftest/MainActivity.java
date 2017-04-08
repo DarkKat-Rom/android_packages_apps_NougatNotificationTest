@@ -45,13 +45,9 @@ import net.darkkatrom.nnotiftest.utils.PreferenceUtils;
 public class MainActivity extends Activity implements  View.OnClickListener,
         CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
 
-    public static final String KEY_TEXT_REPLY = "key_text_reply";
-
     public static final String TYPE_BUTTONS_CHECKED_ID = "type_button_checked_id";
     public static final String SET_PRIORITY_CHECKED    = "set_priority_checked";
     public static final String SHOW_ACTION_BUTTONS     = "show_action_buttons";
-
-    public int NOTIF_REF = 1;
 
     private PreferenceUtils mUtils;
     private NotificationManager mManager;
@@ -99,21 +95,6 @@ public class MainActivity extends Activity implements  View.OnClickListener,
             onCheckedChanged(mSetPriority, mSetPriority.isChecked());
             mShowActionButtons.setChecked(true);
         }
-
-        Bundle remoteInput = RemoteInput.getResultsFromIntent(getIntent());
-        if (remoteInput != null) {
-            CharSequence replyText = remoteInput.getCharSequence(KEY_TEXT_REPLY);
-            Notification repliedNotification = new Notification.Builder(this)
-                .setSmallIcon(mRandomizer.getRandomIconId())
-                .setShowWhen(true)
-                .setWhen(System.currentTimeMillis())
-                .setContentTitle(getResources().getString(R.string.notification_action_replied_title))
-                .setContentText(getResources().getString(R.string.notification_action_replied_text,
-                        replyText))
-                .build();
-            sendNotification(repliedNotification);
-        }
-
     }
 
     @Override
@@ -182,7 +163,14 @@ public class MainActivity extends Activity implements  View.OnClickListener,
 
     @Override
     public void onClick(View v) {
-        Notification notif = null;
+        Notification notification = buildNotification();
+        if (notification != null) {
+            sendNotification(notification);
+        }
+    }
+
+    private Notification buildNotification() {
+        Notification notification = null;
         Notification.Builder builder = new Notification.Builder(this)
             .setShowWhen(true)
             .setWhen(System.currentTimeMillis())
@@ -207,26 +195,26 @@ public class MainActivity extends Activity implements  View.OnClickListener,
         switch (mTypeButtonsGroup.getCheckedRadioButtonId()) {
             default:
             case R.id.type_default:
-                notif = getDefaultNotification(builder);
+                notification = getDefaultNotification(builder);
                 break;
             case R.id.type_big_text:
-                notif = getBigTextStyle(builder);
+                notification = getBigTextStyle(builder);
                 break;
             case R.id.type_big_picture:
-                notif = getBigPictureStyle(builder);
+                notification = getBigPictureStyle(builder);
                 break;
             case R.id.type_inbox:
-                notif = getInboxStyle(builder);
+                notification = getInboxStyle(builder);
                 break;
             case R.id.type_messaging:
-                notif = getMessagingStyle(builder);
+                notification = getMessagingStyle(builder);
                 break;
             case R.id.type_media:
-                notif = getMediaStyle(builder);
+                notification = getMediaStyle(builder);
                 break;
         }
+        return notification;
 
-        sendNotification(notif);
     }
 
     public void showSettings(MenuItem item) {
@@ -278,7 +266,7 @@ public class MainActivity extends Activity implements  View.OnClickListener,
             boolean showTombstoneActions = mUtils.getShowTombstoneActions()
                     && !mUtils.getShowEmphasizedActions() && i != 1;
             if (showReplyAction && i == 0) {
-                builder.addAction(getReplyAction(intent));
+                builder.addAction(getReplyAction());
             } else {
                 builder.addAction(mRandomizer.getRandomIconId(), getResources().getString(
                         R.string.notification_action_text, (i + 1)), showTombstoneActions ? null : intent);
@@ -292,14 +280,20 @@ public class MainActivity extends Activity implements  View.OnClickListener,
         return builder.build();
     }
 
-    private Notification.Action getReplyAction(PendingIntent intent) {
+    private Notification.Action getReplyAction() {
+        Intent resultIntent = new Intent(this, NotificationReplyReceiver.class);
+        resultIntent.setAction(NotificationReplyReceiver.ACTION_NOTIFICATION_REPLY);
+        resultIntent.putExtra(PreferenceUtils.NOTIFICATION_ID, mUtils.getNotificationId());
+        PendingIntent resultPendingIntent = PendingIntent.getBroadcast(getApplicationContext(),
+                mUtils.getNotificationId(), resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
         String replyHint = getResources().getString(R.string.notification_action_reply_hint);
-        RemoteInput remoteInput = new RemoteInput.Builder(KEY_TEXT_REPLY)
+        RemoteInput remoteInput = new RemoteInput.Builder(PreferenceUtils.TEXT_REPLY)
             .setLabel(replyHint)
             .build();
 
         Notification.Action action = new Notification.Action.Builder(mRandomizer.getRandomIconId(),
-                getResources().getString(R.string.notification_action_reply_title), intent)
+                getResources().getString(R.string.notification_action_reply_title), resultPendingIntent)
                 .addRemoteInput(remoteInput)
                 .build();
         return action;
@@ -425,7 +419,10 @@ public class MainActivity extends Activity implements  View.OnClickListener,
         super.onSaveInstanceState(outState);
     }
 
-    public void sendNotification(Notification notif){
-        mManager.notify(NOTIF_REF++, notif);
+    public void sendNotification(Notification notif) {
+        int notificationId = mUtils.getNotificationId();
+        mManager.notify(notificationId, notif);
+        int nextNotificationId = notificationId == 100 ? 1 : notificationId + 1;
+        mUtils.setNotificationId(nextNotificationId);
     }
 }
