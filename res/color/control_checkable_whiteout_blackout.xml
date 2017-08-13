@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 DarkKat
+<!-- Copyright (C) 2015 The Android Open Source Project
+
+     Copyright (C) 2017 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,11 +15,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
 
-    <style name="AppTheme" parent="@android:style/Theme.Material.DayNight.DarkActionBar">
-        <item name="android:colorPrimary">@color/theme_primary</item>
-        <item name="android:colorPrimaryDark">@color/theme_primary_dark</item>
-        <item name="android:colorAccent">@color/theme_accent</item>
-    </style>
-</resources>
+<!-- Based off frameworks/base/core/res/res/color/control_checkable_material.xml
+     except that this uses a fully transparent color for all states other than state checked. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true"
+          android:color="?android:attr/colorControlActivated" />
+    <item android:color="#00000000" />
+</selector>

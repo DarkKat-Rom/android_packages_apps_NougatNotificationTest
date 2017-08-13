@@ -27,6 +27,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.RippleDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -406,6 +407,11 @@ public class MainActivity extends Activity implements  View.OnClickListener,
         super.onResume();
         mFabBackground.setColor(ColorStateList.valueOf(mUtils.getNotificationColor()));
         mFab.setImageTintList(ColorStateList.valueOf(mUtils.getFabIconColor()));
+        if (mFab.getBackground() instanceof RippleDrawable) {
+            RippleDrawable bg = (RippleDrawable) mFab.getBackground().mutate();
+            bg.setColor(ColorStateList.valueOf(mUtils.getFabRippleColor()));
+            mFab.setBackground(bg);
+        }
     }
     
 

@@ -47,7 +47,8 @@
                 android:text="@string/default_title"
                 android:textOn="@null"
                 android:textOff="@null"
-                android:onClick="onToggle" />
+                android:onClick="onToggle"
+                style="@style/ToggleButtonStyle" />
 
             <ToggleButton
                 android:id="@+id/type_big_text"
@@ -59,7 +60,8 @@
                 android:text="@string/big_text_title"
                 android:textOn="@null"
                 android:textOff="@null"
-                android:onClick="onToggle" />
+                android:onClick="onToggle"
+                style="@style/ToggleButtonStyle" />
 
             <ToggleButton
                 android:id="@+id/type_big_picture"
@@ -70,7 +72,8 @@
                 android:text="@string/big_picture_title"
                 android:textOn="@null"
                 android:textOff="@null"
-                android:onClick="onToggle" />
+                android:onClick="onToggle"
+                style="@style/ToggleButtonStyle" />
 
         </LinearLayout>
 
@@ -90,7 +93,8 @@
                 android:text="@string/inbox_title"
                 android:textOn="@null"
                 android:textOff="@null"
-                android:onClick="onToggle" />
+                android:onClick="onToggle"
+                style="@style/ToggleButtonStyle" />
 
             <ToggleButton
                 android:id="@+id/type_messaging"
@@ -102,7 +106,8 @@
                 android:text="@string/messaging_title"
                 android:textOn="@null"
                 android:textOff="@null"
-                android:onClick="onToggle" />
+                android:onClick="onToggle"
+                style="@style/ToggleButtonStyle" />
 
             <ToggleButton
                 android:id="@+id/type_media"
@@ -113,7 +118,8 @@
                 android:text="@string/media_title"
                 android:textOn="@null"
                 android:textOff="@null"
-                android:onClick="onToggle" />
+                android:onClick="onToggle"
+                style="@style/ToggleButtonStyle" />
 
         </LinearLayout>
     </RadioGroup>
@@ -238,7 +244,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp"
-            android:background="@drawable/floating_action_button_bg_selector"
+            android:background="@drawable/ripple_drawable_oval"
             android:src="@drawable/ic_send"
             android:scaleType="center" />
 

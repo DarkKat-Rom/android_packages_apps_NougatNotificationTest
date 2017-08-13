@@ -126,10 +126,15 @@ public final class PreferenceUtils {
     }
 
     public int getFabIconColor() {
-        return mContext.getResources().getColor(
-                isColorGrayscale(getNotificationColor()) && !isColorDark(getNotificationColor())
-                        ? R.color.floating_action_button_icon_color_dark
-                        : R.color.floating_action_button_icon_color_light);
+        return mContext.getResources().getColor(isColorDark(getNotificationColor())
+                        ? R.color.floating_action_button_icon_color_light
+                        : R.color.floating_action_button_icon_color_dark);
+    }
+
+    public int getFabRippleColor() {
+        return mContext.getResources().getColor(isColorDark(getNotificationColor())
+                        ? R.color.floating_action_button_ripple_color_light
+                        : R.color.floating_action_button_ripple_color_dark);
     }
 
     public int getNotificationId() {
@@ -138,16 +143,6 @@ public final class PreferenceUtils {
 
     public void setNotificationId(int id) {
         mPreferences.edit().putInt(NOTIFICATION_ID, id).commit();
-    }
-
-    public static boolean isColorGrayscale(int color) {
-        int r = Color.red(color);
-        int g = Color.green(color);
-        int b = Color.blue(color);
-
-        return Math.abs(r - g) < 20
-                && Math.abs(r - b) < 20
-                && Math.abs(g - b) < 20;
     }
 
     private static boolean isColorDark(int color) {

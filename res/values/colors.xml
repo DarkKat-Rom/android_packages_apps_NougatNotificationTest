@@ -15,6 +15,8 @@
 -->
 <resources>
 
+    <!-- Theme  material light -->
+
     <!-- Action bar background color -->
     <color name="theme_primary">#ff3f51b5</color>  <!-- material indigo 500 -->
 
@@ -24,15 +26,20 @@
     <!-- Accent color -->
     <color name="theme_accent">#ff9c27b0</color>  <!-- material purple 500 -->
 
-    <!-- Flaoting action button pressed color -->
-    <color name="floating_action_button_pressed_color">#1f000000</color>  <!-- 12% black -->
+    <!-- All themes -->
 
-    <!-- Flaoting action button icon color on light greycale backgrounds -->
+    <!-- Flaoting action button ripple color on light backgrounds -->
+    <color name="floating_action_button_ripple_color_dark">#1f000000</color>  <!-- 12% black -->
+
+    <!-- Flaoting action button ripple color on dark backgrounds -->
+    <color name="floating_action_button_ripple_color_light">#33ffffff</color>  <!-- 20% white -->
+
+    <!-- Flaoting action button icon color on light backgrounds -->
     <color name="floating_action_button_icon_color_dark">#8a000000</color>  <!-- 54% black -->
 
-    <!-- Flaoting action button icon color on dark or non greycale backgrounds -->
+    <!-- Flaoting action button icon color on dark backgrounds -->
     <color name="floating_action_button_icon_color_light">#ffffffff</color>  <!-- opaque white -->
 
     <!-- Default notification color -->
-    <color name="default_notification_color">#757575</color> <!-- Gray 600 -->
+    <color name="default_notification_color">#ff9c27b0</color> <!-- material purple 500 -->
 </resources>
